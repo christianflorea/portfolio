@@ -27,7 +27,7 @@ const useTypingEffect = ({
 
     const startTyping = () => {
       typingInterval = setInterval(() => {
-        setCommand((prev) => fullCommand.slice(0, index + 1));
+        setCommand(fullCommand.slice(0, index + 1));
         index++;
 
         if (index === fullCommand.length) {

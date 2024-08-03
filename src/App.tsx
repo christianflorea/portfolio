@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import "./App.css";
 
 import Terminal from "./components/common/Terminal";
@@ -18,20 +18,30 @@ function App() {
   const [isContentVisible, setIsContentVisible] = useState(false);
   const aboutSectionRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollToAboutMe = () =>
-    aboutSectionRef.current
-      ? aboutSectionRef.current.scrollIntoView({ behavior: "smooth" })
-      : null;
+  const scrollToAboutMe = useCallback(() => {
+    if (aboutSectionRef.current) {
+      aboutSectionRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
+  const onAnimationDelayDone = useCallback(() => {
+    scrollToAboutMe();
+  }, [scrollToAboutMe]);
+
+  const onAnimationDone = useCallback(() => {
+    setIsContentVisible(true);
+  }, []);
 
   return (
     <div className="App">
       <TopLineContainer isRow={isDesktop}>
         <Terminal
-          onAnimationDone={() => scrollToAboutMe()}
-          onAnimationDelayDone={() => setIsContentVisible(true)}
+          onAnimationDone={onAnimationDone}
+          onAnimationDelayDone={onAnimationDelayDone}
         />
-        <div ref={aboutSectionRef} />
-        {isContentVisible && <About />}
+        <div ref={aboutSectionRef}>
+          {isContentVisible && <About />}
+        </div>
       </TopLineContainer>
     </div>
   );
