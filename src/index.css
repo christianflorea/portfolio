@@ -7,3 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  min-height: 100dvh;
+  background-color: #0f0c29;
+}
+

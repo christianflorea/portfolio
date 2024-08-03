@@ -17,6 +17,7 @@ const useScreenSize = (): ScreenSize => {
     const handleResize = () => {
       setScreenSize(getSize());
     };
+    handleResize();
 
     window.addEventListener('resize', handleResize);
 

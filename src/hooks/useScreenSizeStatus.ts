@@ -17,23 +17,17 @@ const useScreenSizeStatus = (): ScreenSizeStatus => {
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
 
   useEffect(() => {
-    if (width < MOBILE_SIZE || height < MOBILE_SIZE) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
+    const updateScreenSizeStatus = () => {
+      const isMobileSize = width < MOBILE_SIZE || height < MOBILE_SIZE;
+      const isResponsiveSize = width < RESPONSIVE_SIZE && width >= MOBILE_SIZE;
+      const isDesktopSize = !isMobileSize && !isResponsiveSize;
 
-    if (width < RESPONSIVE_SIZE && width >= MOBILE_SIZE) {
-      setIsResponsive(true);
-    } else {
-      setIsResponsive(false);
-    }
+      setIsMobile(isMobileSize);
+      setIsResponsive(isResponsiveSize);
+      setIsDesktop(isDesktopSize);
+    };
 
-    if (!isMobile && !isResponsive) {
-      setIsDesktop(true);
-    } else {
-      setIsDesktop(false);
-    }
+    updateScreenSizeStatus();
   }, [width, height]);
 
   return { isMobile, isResponsive, isDesktop };
