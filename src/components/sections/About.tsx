@@ -4,7 +4,6 @@ import styled from "styled-components";
 import useScreenSizeStatus from "../../hooks/useScreenSizeStatus";
 import Column from "../common/Column";
 import { getAboutText } from "../../data";
-import { HeadignText } from "../common/Text";
 import { Typography } from "@mui/material";
 
 const AboutContainer = styled.div`

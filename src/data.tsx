@@ -5,8 +5,7 @@ export const getAboutText = () => `
 `;
 
 export const getSections = () => [
-  "Intro",
-  "Skills",
+  "About Me",
   "Experience",
   "Projects",
   "Contact",

@@ -1,22 +1,28 @@
 import React from "react";
 import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
+import TimelineItem, { timelineItemClasses } from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
+import TimelineOppositeContent, { timelineOppositeContentClasses } from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/system";
 import { getExperience } from "../../data";
 import Column from "../common/Column";
 import useScreenSizeStatus from "../../hooks/useScreenSizeStatus";
-import { Divider } from "@mui/material";
+import { styled } from "styled-components";
 
-const TimelineContainer = styled("div")`
+const TimelineContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+`;
+
+const Divider = styled.div`
+  width: 100px;
+  height: 1px;
+  background-color: #cecece;
+  margin: 8px 0;
 `;
 
 const StyledTimelineDot = styled(TimelineDot)`
@@ -59,8 +65,19 @@ const Experience = () => {
         Experience
       </Typography>
       <TimelineContainer>
-        <Timeline position={isMobile ? "right" : "alternate"}>
-          {experience.map((exp, idx) => (
+        <Timeline
+          position="right"
+          sx={{
+            [`& .${timelineItemClasses.root}:before`]: {
+              flex: 0,
+              padding: 0,
+            },
+            [`& .${timelineOppositeContentClasses.root}`]: {
+              flex: 0.25,
+            },
+          }}
+        >
+          {experience.map((exp) => (
             <StyledTimelineItem key={`${exp.company}-${exp.date}`}>
               {!isMobile && (
                 <TimelineOppositeContent
@@ -94,7 +111,7 @@ const Experience = () => {
                   gap: "8px",
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: isMobile ? "flex-start" : idx % 2 === 1 ? "flex-end" : "flex-start",
+                  alignItems: "flex-start",
                   justifyContent: "center",
                 }}
               >
@@ -105,13 +122,9 @@ const Experience = () => {
                   {exp.role}
                 </Typography>
                 <Divider />
-                {exp.description
-                  .slice(0, isDesktop ? undefined : 1)
-                  .map((desc) => (
-                    <Typography variant="body2" component="span" key={desc}>
-                      {desc}
-                    </Typography>
-                  ))}
+                <Typography variant="body2" component="span">
+                  {exp.description[0]}
+                </Typography>
               </TimelineContent>
             </StyledTimelineItem>
           ))}
