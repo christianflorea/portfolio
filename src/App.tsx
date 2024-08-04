@@ -1,10 +1,11 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { Fragment, useCallback, useRef, useState } from "react";
 import "./App.css";
 
 import Terminal from "./components/common/Terminal";
 import About from "./components/sections/About";
 import useScreenSizeStatus from "./hooks/useScreenSizeStatus";
 import { styled } from "styled-components";
+import Experience from "./components/sections/Experience";
 
 const TopLineContainer = styled.div<{ isRow: boolean }>`
   display: flex;
@@ -39,9 +40,13 @@ function App() {
           onAnimationDone={onAnimationDone}
           onAnimationDelayDone={onAnimationDelayDone}
         />
-        <div ref={aboutSectionRef}>
-          {isContentVisible && <About />}
-        </div>
+        <div ref={aboutSectionRef} />
+        {isContentVisible && (
+          <Fragment>
+            <About />
+            <Experience />
+          </Fragment>
+        )}
       </TopLineContainer>
     </div>
   );

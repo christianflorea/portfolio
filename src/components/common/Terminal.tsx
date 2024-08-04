@@ -6,7 +6,7 @@ import useScreenSizeStatus from "../../hooks/useScreenSizeStatus";
 import Row from "./Row";
 import Column from "./Column";
 
-import { SECTIONS } from "../../data";
+import { getSections } from "../../data";
 import useTypingEffect from "../../hooks/useTypingEffect";
 import TerminalText from "./TerminalText";
 import { BlueText } from "./Text";
@@ -30,7 +30,8 @@ const StyledTerminal = styled.div<{ width?: string }>`
   margin: 50px 12px;
   min-width: 320px;
   width: ${(props) => props.width || "100%"};
-  height: 400px;
+  height: 600px;
+  max-height: 80vh;
   border-radius: 10px;
   background-color: rgb(33, 33, 33);
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.6);
@@ -52,6 +53,8 @@ function Terminal({ onAnimationDone, onAnimationDelayDone }: TerminalProps) {
   const terminalWidth = isMobile ? "100%" : isResponsive ? "90%" : "900px";
   const fontSize = !isDesktop ? "24px" : "32px";
 
+  const sections = getSections();
+
   const { command, showNextCommand } = useTypingEffect({
     fullCommand: "ls ",
     onAnimationDone: onAnimationDone,
@@ -71,7 +74,7 @@ function Terminal({ onAnimationDone, onAnimationDelayDone }: TerminalProps) {
         <TerminalText command={command} showCursor={!showNextCommand} />
         {showNextCommand && (
           <Column alignItems="flex-start" gap="8px">
-            {SECTIONS.map((section) => (
+            {sections.map((section) => (
               <BlueText key={section} style={{ fontSize }}>
                 {section}
               </BlueText>

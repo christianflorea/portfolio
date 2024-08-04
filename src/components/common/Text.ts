@@ -15,5 +15,5 @@ export const HeadignText = styled.span`
   font-family: open-sans, sans-serif;
   font-weight: 600;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
 `;
