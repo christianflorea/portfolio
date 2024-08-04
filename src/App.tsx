@@ -12,6 +12,7 @@ const TopLineContainer = styled.div<{ isRow: boolean }>`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  width: 100vw;
 `;
 
 function App() {
