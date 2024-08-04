@@ -3,7 +3,7 @@
   min-height: 100vh;
   width: 100vw;
 
-  background: #0f0c29;  
-  background: linear-gradient(100deg, hwb(220 72% 0%), hwb(215 93% 0%)); 
+  background: rgb(244, 242, 238);  
+  /* background: linear-gradient(100deg, hwb(220 72% 0%), hwb(215 93% 0%));  */
 }
 
