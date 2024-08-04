@@ -33,7 +33,7 @@ export const getExperience = (): Experience[] => [
     company: "Verkada",
     date: "May 2024 – Current",
     icon: {
-      src: "/verkada-logo.webp",
+      src: process.env.PUBLIC_URL + "/verkada-logo.webp",
       alt: "Verkada Logo",
       height: "50px",
       width: "66px",
@@ -48,8 +48,14 @@ export const getExperience = (): Experience[] => [
     ],
     companyLink: "https://www.verkada.com",
     projectLinks: [
-      { name: "Intercom Dashboard", link: "/project-intercom-dashboard.pdf" },
-      { name: "AI Events Search", link: "/project-intercom-ai-search.pdf" },
+      {
+        name: "Intercom Dashboard",
+        link: process.env.PUBLIC_URL + "/project-intercom-dashboard.pdf",
+      },
+      {
+        name: "AI Events Search",
+        link: process.env.PUBLIC_URL + "/project-intercom-ai-search.pdf",
+      },
     ],
   },
   {
@@ -57,7 +63,7 @@ export const getExperience = (): Experience[] => [
     company: "Relay Financial",
     date: "Sep – Dec 2023",
     icon: {
-      src: "/relay-logo.webp",
+      src: process.env.PUBLIC_URL + "/relay-logo.webp",
       alt: "Relay Logo",
       height: "30.6px",
       width: "60px",
@@ -70,14 +76,19 @@ export const getExperience = (): Experience[] => [
       "Implemented Veryfi’s API to improve OCR, resulting in receipt to transaction matching accuracy of 98%.",
     ],
     companyLink: "https://www.relayfi.com",
-    projectLinks: [{ name: "Receipt Managment", link: "https://relayfi.com/receipt-management" }],
+    projectLinks: [
+      {
+        name: "Receipt Managment",
+        link: "https://relayfi.com/receipt-management",
+      },
+    ],
   },
   {
     role: "Software Engineer Intern",
     company: "ATS Corporation",
     date: "Jan – Apr 2023",
     icon: {
-      src: "/ats-logo.webp",
+      src: process.env.PUBLIC_URL + "/ats-logo.webp",
       alt: "ATS Logo",
       height: "11px",
       width: "60px",
@@ -95,7 +106,7 @@ export const getExperience = (): Experience[] => [
     company: "Molex",
     date: "Sep – Dec 2022",
     icon: {
-      src: "/molex-logo.png",
+      src: process.env.PUBLIC_URL + "/molex-logo.png",
       alt: "Molex Logo",
       height: "60px",
       width: "60px",
