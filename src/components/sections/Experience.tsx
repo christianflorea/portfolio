@@ -17,9 +17,24 @@ import Row from "../common/Row";
 import { Button } from "@mui/material";
 import LaunchIcon from "@mui/icons-material/Launch";
 
-const ExperienceContainer = styled(Column)`
+const ExperienceContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 12px;
-  max-width: 1200px;
+  background-color: #3d52a0;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 12px auto;
+  border-radius: 10px;
+  color: #fff;
+
+  & h3 {
+    font-family: "poppins", sans-serif;
+    font-weight: 600;
+    color: #ede8f5;
+  }
 `;
 
 const TimelineContainer = styled.div``;
@@ -31,12 +46,12 @@ const Divider = styled.div`
   margin: 8px 0;
 `;
 
-const StyledTimelineDot = styled(TimelineDot)<{backgroundcolor: string}>`
+const StyledTimelineDot = styled(TimelineDot)<{ backgroundcolor: string }>`
   cursor: pointer;
-  background-color: ${props => props.backgroundcolor};
+  background-color: ${(props) => props.backgroundcolor};
 
   &:hover {
-    background-color: ${props => props.backgroundcolor}55;
+    background-color: ${(props) => props.backgroundcolor}cc;
   }
 `;
 
@@ -62,6 +77,12 @@ const StyledLinkedButtons = styled(Button)`
   background-color: #2876a1; !important;
 `;
 
+const ViewMoreButton = styled(Button)`
+  margin-top: 8px !important;
+  color: #fff;
+  font-weight: 600;
+`;
+
 const Experience = () => {
   const { isMobile } = useScreenSizeStatus();
   const experience = getExperience();
@@ -84,13 +105,8 @@ const Experience = () => {
   const ProjectLinkButtons = isMobile ? Column : Row;
 
   return (
-    <ExperienceContainer
-      gap="24px"
-      justifyContent="center"
-      alignItems="center"
-      width="100%"
-    >
-      <Typography variant="h4" component="h2" gutterBottom>
+    <ExperienceContainer>
+      <Typography variant="h3" component="h3" gutterBottom color="inherit">
         Experience
       </Typography>
       <TimelineContainer>
@@ -113,7 +129,6 @@ const Experience = () => {
                   sx={{ m: "auto 0" }}
                   align="right"
                   variant="body2"
-                  color="text.secondary"
                 >
                   {exp.date}
                 </TimelineOppositeContent>
@@ -163,7 +178,7 @@ const Experience = () => {
                         variant="contained"
                         size="small"
                         onClick={() => openInNewTab(project.link)}
-                        endIcon={<LaunchIcon />}
+                        endIcon={!isMobile && <LaunchIcon />}
                         color="info"
                       >
                         {project.name}
@@ -177,13 +192,14 @@ const Experience = () => {
                     exp.description
                       .slice(1)
                       .map((desc, index) => <li key={index}>{desc}</li>)}
-                  <Button
-                    variant="text"
+                  <ViewMoreButton
+                    variant="outlined"
                     size="small"
+                    color="inherit"
                     onClick={() => onViewMoreClick(idx)}
                   >
                     {viewMore[idx] ? "View Less" : "View More"}
-                  </Button>
+                  </ViewMoreButton>
                 </ul>
               </TimelineContent>
             </StyledTimelineItem>

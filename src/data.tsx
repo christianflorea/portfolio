@@ -1,8 +1,36 @@
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import ArticleIcon from '@mui/icons-material/Article';
+
 export const getAboutText = () => `
 🚀 I am a software developer currently studying Engineering at the University of Waterloo and passionate about exploring the world of tech and engineering. I am approaching 2 years of professional experience through internships working in industries such as fintech and physical security.
 
 🏊‍♂️ Outside of school and work, I enjoy swimming as a part of the Waterloo varsity swim team as well as watching F1 and hockey.
 `;
+
+export const getAboutLinks = () => [
+  {
+    name: "Resume",
+    link: process.env.PUBLIC_URL + "/christian-florea-resume.pdf",
+    logo: <ArticleIcon/>,
+  },
+  {
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/christianflorea/",
+    logo: <LinkedInIcon/>,
+  },
+  {
+    name: "GitHub",
+    link: "https://github.com/christianflorea",
+    logo: <GitHubIcon/>,
+  },
+  {
+    name: "Email",
+    link: "mailto:cflorea@uwaterloo.ca",
+    logo: <EmailIcon/>,
+  },
+];
 
 export const getSections = () => [
   "About Me",
@@ -37,7 +65,7 @@ export const getExperience = (): Experience[] => [
       alt: "Verkada Logo",
       height: "50px",
       width: "66px",
-      color: "#222",
+      color: "#222222",
     },
     description: [
       "Developed a new intercom dashboard page to display and sort more than 100k weekly call and video events.",
@@ -92,7 +120,7 @@ export const getExperience = (): Experience[] => [
       alt: "ATS Logo",
       height: "11px",
       width: "60px",
-      color: "#fff",
+      color: "#ffffff",
     },
     description: [
       "Prototyped a full stack React/Node app from scratch, to replace a third-party app with concurrent user issues.",

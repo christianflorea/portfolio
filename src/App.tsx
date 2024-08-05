@@ -6,6 +6,7 @@ import About from "./components/sections/About";
 import useScreenSizeStatus from "./hooks/useScreenSizeStatus";
 import { styled } from "styled-components";
 import Experience from "./components/sections/Experience";
+import Projects from "./components/sections/Projects";
 
 const TopLineContainer = styled.div<{ isRow: boolean }>`
   display: flex;
@@ -46,6 +47,7 @@ function App() {
           <Fragment>
             <About />
             <Experience />
+            <Projects />
           </Fragment>
         )}
       </TopLineContainer>
