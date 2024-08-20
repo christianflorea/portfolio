@@ -5,7 +5,6 @@ import useScreenSizeStatus from "../../hooks/useScreenSizeStatus";
 import Column from "../common/Column";
 import { getAboutLinks, getAboutText } from "../../data";
 import { Button, Typography } from "@mui/material";
-import Row from "../common/Row";
 
 const AboutContainer = styled.div`
   max-width: 1600px;
@@ -36,7 +35,7 @@ const AboutContainer = styled.div`
 `;
 
 const GradientText = styled(Typography)`
-  background: linear-gradient(90deg, #E5A57E, #DE6262);
+  background: linear-gradient(90deg, #e5a57e, #de6262);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -63,11 +62,10 @@ const LinkButton = styled(Button)`
 `;
 
 function About() {
-  const { isDesktop, isMobile } = useScreenSizeStatus();
+  const { isMobile } = useScreenSizeStatus();
   const aboutText = getAboutText();
   const aboutLinks = getAboutLinks();
 
-  const FlexContainer = Column;
   const titleVariant = isMobile ? "h3" : "h1";
   const subTitleVariant = isMobile ? "h4" : "h2";
 
@@ -86,10 +84,7 @@ function About() {
           >
             Hey 👋
           </Typography>
-          <GradientText
-            variant={titleVariant}
-            fontFamily="inherit"
-          >
+          <GradientText variant={titleVariant} fontFamily="inherit">
             I'm Christian Florea.
           </GradientText>
           <Typography
