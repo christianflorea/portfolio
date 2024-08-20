@@ -1,6 +1,5 @@
 import React from "react";
 import Row from "./Row";
-import { Typography } from "@mui/material";
 import { styled } from "styled-components";
 import useScreenSizeStatus from "../../hooks/useScreenSizeStatus";
 

@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback, useRef, useState } from "react";
+import React, { Fragment, useCallback, useState } from "react";
 import "./App.css";
 
 import Terminal from "./components/common/Terminal";
