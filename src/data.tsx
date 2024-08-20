@@ -1,7 +1,7 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
-import ArticleIcon from '@mui/icons-material/Article';
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EmailIcon from "@mui/icons-material/Email";
+import ArticleIcon from "@mui/icons-material/Article";
 
 export const getAboutText = () => `
 I am a software developer currently studying Engineering at the University of Waterloo and passionate about exploring the world of tech and engineering. I am approaching 2 years of professional experience through internships working in industries such as fintech and physical security.
@@ -13,22 +13,22 @@ export const getAboutLinks = () => [
   {
     name: "Resume",
     link: process.env.PUBLIC_URL + "/christian-florea-resume.pdf",
-    logo: <ArticleIcon/>,
+    logo: <ArticleIcon />,
   },
   {
     name: "LinkedIn",
     link: "https://www.linkedin.com/in/christianflorea/",
-    logo: <LinkedInIcon/>,
+    logo: <LinkedInIcon />,
   },
   {
     name: "GitHub",
     link: "https://github.com/christianflorea",
-    logo: <GitHubIcon/>,
+    logo: <GitHubIcon />,
   },
   {
     name: "Email",
     link: "mailto:cflorea@uwaterloo.ca",
-    logo: <EmailIcon/>,
+    logo: <EmailIcon />,
   },
 ];
 
@@ -59,7 +59,7 @@ export const getExperience = (): Experience[] => [
   {
     role: "Frontend Software Engineer Intern",
     company: "Verkada",
-    date: "May 2024 – Current",
+    date: "May 2024 – August 2024",
     icon: {
       src: process.env.PUBLIC_URL + "/verkada-logo.webp",
       alt: "Verkada Logo",
@@ -84,6 +84,14 @@ export const getExperience = (): Experience[] => [
         name: "AI Events Search",
         link: process.env.PUBLIC_URL + "/project-intercom-ai-search.pdf",
       },
+      {
+        name: "My Features Released",
+        link: "https://www.verkada.com/blog/enhancing-enterprise-scalability-with-new-intercom-software-features/",
+      },
+      {
+        name: "Compnay Website",
+        link: "https://www.verkada.com",
+      },
     ],
   },
   {
@@ -106,8 +114,12 @@ export const getExperience = (): Experience[] => [
     companyLink: "https://www.relayfi.com",
     projectLinks: [
       {
-        name: "Receipt Managment",
+        name: "My Feature Released",
         link: "https://relayfi.com/receipt-management",
+      },
+      {
+        name: "Compnay Website",
+        link: "https://www.relayfi.com",
       },
     ],
   },
@@ -118,8 +130,8 @@ export const getExperience = (): Experience[] => [
     icon: {
       src: process.env.PUBLIC_URL + "/ats-logo.webp",
       alt: "ATS Logo",
-      height: "11px",
-      width: "60px",
+      height: "15px",
+      width: "80px",
       color: "#ffffff",
     },
     description: [
@@ -128,9 +140,15 @@ export const getExperience = (): Experience[] => [
       "Employed WebSockets to display real-time data from the PLC, decreasing data latency time by 4x.",
     ],
     companyLink: "https://www.atsautomation.com",
+    projectLinks: [
+      {
+        name: "Compnay Website",
+        link: "https://www.atsautomation.com",
+      },
+    ],
   },
   {
-    role: "Internal Tools Software Engineer Intern",
+    role: "Infrastructue Engineer Intern",
     company: "Molex",
     date: "Sep – Dec 2022",
     icon: {
@@ -138,12 +156,18 @@ export const getExperience = (): Experience[] => [
       alt: "Molex Logo",
       height: "60px",
       width: "60px",
-      color: "#cbcbcb",
+      color: "#dfdfdf",
     },
     description: [
       "Developed a Python API with GUI to automate PLC, laser marker, and SQL Server comms, tripling PCB production.",
-      "Leveraged Docker to containerize the executable and configured Jenkins CI/CD pipelines to automate the build, test, and deployment, reducing deployment time by 60%.",
+      "Leveraged Docker to containerize the executable and configured Jenkins CI/CD pipelines to automate the \nbuild, test, and deployment, reducing deployment time by 60%.",
     ],
     companyLink: "https://www.molex.com",
+    projectLinks: [
+      {
+        name: "Compnay Website",
+        link: "https://www.molex.com",
+      },
+    ],
   },
 ];
