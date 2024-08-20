@@ -52,7 +52,6 @@ const StyledButtons = styled.div`
   display: flex;
   justify-content: center;
   gap: 12px;
-  width: 100%;
   flex-wrap: wrap;
   margin-top: 24px;
 `;
