@@ -13,7 +13,7 @@ import { BlueText } from "./Text";
 
 const TerminalContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 85vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,10 +45,9 @@ const MacButton = styled.div`
 
 type TerminalProps = {
   onAnimationDone: () => void;
-  onAnimationDelayDone: () => void;
 };
 
-function Terminal({ onAnimationDone, onAnimationDelayDone }: TerminalProps) {
+function Terminal({ onAnimationDone }: TerminalProps) {
   const { isMobile, isResponsive, isDesktop } = useScreenSizeStatus();
   const terminalWidth = isMobile ? "100%" : isResponsive ? "90%" : "900px";
   const fontSize = !isDesktop ? "24px" : "32px";
@@ -58,7 +57,6 @@ function Terminal({ onAnimationDone, onAnimationDelayDone }: TerminalProps) {
   const { command, showNextCommand } = useTypingEffect({
     fullCommand: "ls ",
     onAnimationDone: onAnimationDone,
-    onAnimationDelayDone: onAnimationDelayDone,
   });
 
   return (

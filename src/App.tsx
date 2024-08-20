@@ -7,6 +7,7 @@ import useScreenSizeStatus from "./hooks/useScreenSizeStatus";
 import { styled } from "styled-components";
 import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
+import ScrollIcon from "./components/common/ScrollIcon";
 
 const TopLineContainer = styled.div<{ isRow: boolean }>`
   display: flex;
@@ -19,17 +20,8 @@ const TopLineContainer = styled.div<{ isRow: boolean }>`
 function App() {
   const { isDesktop } = useScreenSizeStatus();
   const [isContentVisible, setIsContentVisible] = useState(false);
-  const aboutSectionRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollToAboutMe = useCallback(() => {
-    if (aboutSectionRef.current) {
-      aboutSectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, []);
 
-  const onAnimationDelayDone = useCallback(() => {
-    scrollToAboutMe();
-  }, [scrollToAboutMe]);
 
   const onAnimationDone = useCallback(() => {
     setIsContentVisible(true);
@@ -40,11 +32,11 @@ function App() {
       <TopLineContainer isRow={isDesktop}>
         <Terminal
           onAnimationDone={onAnimationDone}
-          onAnimationDelayDone={onAnimationDelayDone}
         />
-        <div ref={aboutSectionRef} />
+
         {isContentVisible && (
           <Fragment>
+            <ScrollIcon />
             <About />
             <Experience />
             <Projects />

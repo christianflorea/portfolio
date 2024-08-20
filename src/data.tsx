@@ -4,9 +4,9 @@ import EmailIcon from '@mui/icons-material/Email';
 import ArticleIcon from '@mui/icons-material/Article';
 
 export const getAboutText = () => `
-🚀 I am a software developer currently studying Engineering at the University of Waterloo and passionate about exploring the world of tech and engineering. I am approaching 2 years of professional experience through internships working in industries such as fintech and physical security.
+I am a software developer currently studying Engineering at the University of Waterloo and passionate about exploring the world of tech and engineering. I am approaching 2 years of professional experience through internships working in industries such as fintech and physical security.
 
-🏊‍♂️ Outside of school and work, I enjoy swimming as a part of the Waterloo varsity swim team as well as watching F1 and hockey.
+Outside of school and work, I enjoy swimming as a part of the Waterloo varsity swim team as well as watching F1 and hockey.
 `;
 
 export const getAboutLinks = () => [

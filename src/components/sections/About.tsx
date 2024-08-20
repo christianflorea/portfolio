@@ -9,16 +9,19 @@ import Row from "../common/Row";
 
 const AboutContainer = styled.div`
   max-width: 1600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 48px 12px;
+  text-align: center;
 
   div {
     padding: 12px;
   }
 
   h1,
+  h2,
   h3,
   h4 {
     font-family: "poppins", sans-serif;
@@ -26,13 +29,24 @@ const AboutContainer = styled.div`
     color: #3d52a0;
   }
 
+  h2,
   h4 {
-    color: #7091e6;
+    font-weight: 400;
   }
+`;
+
+const GradientText = styled(Typography)`
+  background: linear-gradient(90deg, #E5A57E, #DE6262);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 `;
 
 const StyledText = styled(Typography)`
   white-space: pre-line;
+  font-size: 1.2rem;
+  max-width: 1000px;
 `;
 
 const StyledButtons = styled.div`
@@ -44,13 +58,18 @@ const StyledButtons = styled.div`
   margin-top: 24px;
 `;
 
+const LinkButton = styled(Button)`
+  width: 140px;
+`;
+
 function About() {
   const { isDesktop, isMobile } = useScreenSizeStatus();
   const aboutText = getAboutText();
   const aboutLinks = getAboutLinks();
 
-  const FlexContainer = isDesktop ? Row : Column;
+  const FlexContainer = Column;
   const titleVariant = isMobile ? "h3" : "h1";
+  const subTitleVariant = isMobile ? "h4" : "h2";
 
   const openInNewTab = (link: string) => {
     window.open(link, "_blank", "noreferrer");
@@ -58,25 +77,35 @@ function About() {
 
   return (
     <AboutContainer>
-      <FlexContainer gap="36px" alignItems="center">
-        <Column>
+      <Column gap="24px" alignItems="center" justifyContent="center">
+        <Column gap="24px" alignItems="center" justifyContent="center">
           <Typography
-            variant={titleVariant}
-            component={titleVariant}
+            variant={subTitleVariant}
+            component={subTitleVariant}
             fontFamily="inherit"
           >
-            Christian Florea
-          </Typography>{" "}
-          <Typography variant="h4" component="h4" fontFamily="inherit">
-            Software Engineer
+            Hey 👋
+          </Typography>
+          <GradientText
+            variant={titleVariant}
+            fontFamily="inherit"
+          >
+            I'm Christian Florea.
+          </GradientText>
+          <Typography
+            variant={subTitleVariant}
+            component={subTitleVariant}
+            fontFamily="inherit"
+          >
+            A Software Engineer.
           </Typography>
         </Column>
 
         <StyledText variant="body1">{aboutText}</StyledText>
-      </FlexContainer>
+      </Column>
       <StyledButtons>
         {aboutLinks.map((link) => (
-          <Button
+          <LinkButton
             key={link.name}
             variant="contained"
             color="info"
@@ -84,7 +113,7 @@ function About() {
             onClick={() => openInNewTab(link.link)}
           >
             {link.name}
-          </Button>
+          </LinkButton>
         ))}
       </StyledButtons>
     </AboutContainer>
