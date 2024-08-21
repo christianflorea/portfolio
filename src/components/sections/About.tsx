@@ -7,7 +7,6 @@ import { getAboutLinks, getAboutText } from "../../data";
 import { Button, Typography } from "@mui/material";
 
 const AboutContainer = styled.div`
-  max-width: 1600px;
   margin: 48px auto;
   display: flex;
   flex-direction: column;
@@ -15,8 +14,8 @@ const AboutContainer = styled.div`
   padding: 48px 0;
   text-align: center;
   width: 100%;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-color: #d3bfba;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
   div {
     padding: 12px;
