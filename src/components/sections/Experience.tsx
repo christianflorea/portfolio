@@ -8,11 +8,10 @@ import Row from "../common/Row";
 import LaunchIcon from "@mui/icons-material/Launch";
 import PillSelect from "../common/PillSelect";
 
-const ExperienceContainer = styled.div`
+const ExperienceContainer = styled.div<{background?: string}>`
   display: flex;
   flex-direction: column;
   padding: 16px 12px 40px;
-  background-color: #ddd9e5;
   gap: 24px;
   justify-content: center;
   align-items: center;
@@ -20,16 +19,25 @@ const ExperienceContainer = styled.div`
   margin: 12px auto;
   border-radius: 10px;
   color: #000;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  z-index: 1;
 
-  & h3 {
-    font-family: "poppins", sans-serif;
-    font-weight: 600;
+  & h4 {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 400;
     color: #3d52a0;
   }
 
   li {
     line-height: 2;
+  }
+`;
+
+const StyledTitle = styled(Typography)`
+  &&& {
+    font-family: "Titillium Web", sans-serif;
+    font-size: 64px;
+    font-weight: 600;
+    color: #3d52a0;
   }
 `;
 
@@ -78,17 +86,12 @@ const Experience = () => {
   );
 
   return (
-    <ExperienceContainer>
-      <Typography variant="h3" component="h3" gutterBottom color="inherit">
-        Experience
-      </Typography>
+    <Column alignItems="center" justifyContent="center" width="100%" gap="12px">
+      <StyledTitle variant="h3">My Experience</StyledTitle>
+
       <PillSelect items={pillItems} currentSelection={pillIndex} />
-      <Column
-        gap="8px"
-        width="100%"
-        justifyContent="center"
-        alignItems="center"
-      >
+
+      <ExperienceContainer background={currentExperience.icon.color}>
         <Column alignItems="center">
           <Typography variant="h4" color="inherit">
             {currentExperience.company}
@@ -134,8 +137,8 @@ const Experience = () => {
             ))}
           </LinkedButtonsContainer>
         )}
-      </Column>
-    </ExperienceContainer>
+      </ExperienceContainer>
+    </Column>
   );
 };
 

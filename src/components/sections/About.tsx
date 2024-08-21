@@ -8,12 +8,15 @@ import { Button, Typography } from "@mui/material";
 
 const AboutContainer = styled.div`
   max-width: 1600px;
-  margin: 0 auto;
+  margin: 48px auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 48px 12px;
+  padding: 48px 0;
   text-align: center;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
   div {
     padding: 12px;
@@ -25,17 +28,21 @@ const AboutContainer = styled.div`
   h4 {
     font-family: "poppins", sans-serif;
     font-weight: 600;
-    color: #3d52a0;
+    color: #2980b9;
   }
 
   h2,
   h4 {
     font-weight: 400;
   }
+
+  p {
+    color: #2c3e50;
+  }
 `;
 
 const GradientText = styled(Typography)`
-  background: linear-gradient(90deg, #e5a57e, #de6262);
+  background: linear-gradient(90deg, #d35400, #e74c3c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -58,6 +65,11 @@ const StyledButtons = styled.div`
 
 const LinkButton = styled(Button)`
   width: 140px;
+  background-color: #2980b9;
+
+  & hover {
+    background-color: #3498db;
+  }
 `;
 
 function About() {
