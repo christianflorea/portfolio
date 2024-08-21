@@ -25,7 +25,7 @@ const StyledPillButton = styled.button<{
   border-radius: 9999px;
 
   img {
-    transform: ${(props) => (props.mobile ? "scale(0.7)" : null)};
+    transform: ${(props) => (props.mobile ? "scale(0.65)" : null)};
   }
 `;
 
@@ -37,7 +37,7 @@ const StyledPillContainer = styled.div<{ desktop: boolean }>`
   background-color: #9a97a0;
   padding: 2px;
   border-radius: 9999px;
-  gap: 4px;
+  gap: ${(props) => (props.desktop ? "4px" : 0)};
   width: ${(props) => (!props.desktop ? "100%" : "unset")};
 `;
 

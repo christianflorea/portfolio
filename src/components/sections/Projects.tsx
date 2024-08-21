@@ -8,7 +8,7 @@ const ExperienceContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin: 24px 12px 96px;
+  padding: 24px 0 96px;
 
   & h3 {
     font-family: "poppins", sans-serif;
