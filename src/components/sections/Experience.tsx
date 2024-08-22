@@ -7,8 +7,9 @@ import { styled } from "styled-components";
 import Row from "../common/Row";
 import LaunchIcon from "@mui/icons-material/Launch";
 import PillSelect from "../common/PillSelect";
+import ExperienceCard from "../common/ExperienceCard";
 
-const ExperienceContainer = styled.div<{background?: string}>`
+const ExperienceContainer = styled.div<{ background?: string }>`
   display: flex;
   flex-direction: column;
   padding: 16px 12px 40px;
@@ -23,8 +24,8 @@ const ExperienceContainer = styled.div<{background?: string}>`
 
   & h4 {
     font-family: "Titillium Web", sans-serif;
-    font-weight: 400;
-    color: #3d52a0;
+    font-weight: 600;
+    color: #000000;
   }
 
   li {
@@ -34,8 +35,8 @@ const ExperienceContainer = styled.div<{background?: string}>`
 
 const StyledTitle = styled(Typography)`
   &&& {
-    font-family: "Titillium Web", sans-serif;
-    font-size: 64px;
+    font-family: "poppins", sans-serif;
+    font-size: 48px;
     font-weight: 600;
     color: #3d52a0;
   }
@@ -96,40 +97,28 @@ const Experience = () => {
           <Typography variant="h4" color="inherit">
             {currentExperience.company}
           </Typography>
-          <Typography variant="h6" color="inherit">
+          <Typography variant="h5" color="inherit">
             {currentExperience.role}
           </Typography>
           <Typography variant="subtitle1" color="inherit">
             {currentExperience.date}
           </Typography>
         </Column>
-        <Column>
-          <ul>
-            {currentExperience.description.map((desc, idx) => (
-              <li>
-                <Typography
-                  key={idx}
-                  variant="body1"
-                  component="span"
-                  gutterBottom
-                  whiteSpace="break-spaces"
-                >
-                  {desc}
-                </Typography>
-              </li>
-            ))}
-          </ul>
+        <Column width="100%" alignItems="center">
+          {currentExperience.description.map((desc, idx) => (
+            <ExperienceCard {...desc} />
+          ))}
         </Column>
-        {currentExperience.projectLinks && (
+        {currentExperience.extraLinks && (
           <LinkedButtonsContainer>
-            {currentExperience.projectLinks.map((project) => (
+            {currentExperience.extraLinks.map((link) => (
               <StyledLinkedButtons
-                key={project.name}
-                onClick={() => openInNewTab(project.link)}
+                key={link.name}
+                onClick={() => openInNewTab(link.link)}
               >
                 <Row justifyContent="space-between" gap="16px">
                   <Typography variant="body2" component="span">
-                    {project.name}
+                    {link.name}
                   </Typography>
                   <LaunchIcon fontSize="small" />
                 </Row>

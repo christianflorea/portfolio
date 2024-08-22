@@ -1,3 +1,5 @@
+* {box-sizing: border-box;}
+
 .App {
   height: 100%;
   min-height: 100vh;
@@ -6,3 +8,6 @@
   background: #ecf0f1;  
 }
 
+.full-width {
+  width: 100%;
+}
