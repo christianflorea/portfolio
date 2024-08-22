@@ -34,7 +34,7 @@ const StyledPillContainer = styled.div<{ desktop: boolean }>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #9a97a0;
+  background-color: #bec2c2;
   padding: 2px;
   border-radius: 9999px;
   gap: ${(props) => (props.desktop ? "4px" : 0)};

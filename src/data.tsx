@@ -34,9 +34,9 @@ export const getAboutLinks = () => [
 
 export const getSections = () => [
   "About Me",
+  "Contact",
   "Experience",
   "Projects",
-  "Contact",
 ];
 
 type Experience = {

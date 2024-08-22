@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { Typography } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import Row from "./Row";
 
 const Container = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const StyledCardContainer = styled.div<{ isExpanded: boolean }>`
   height: 100%;
   max-width: 900px;
   padding: 16px;
-  border-radius: ${(props) => (props.isExpanded ? "10px 10px 0 0" : "10px")};
+  border-radius: ${(props) => (props.isExpanded ? "8px 8px 0 0" : "8px")};
   background-color: #d4d8d8;
   cursor: pointer;
   transition: background-color 0.3s ease, border-radius 0.3s ease;
@@ -32,11 +33,16 @@ const StyledCardContainer = styled.div<{ isExpanded: boolean }>`
 `;
 
 const ImgContainer = styled.img`
-  border-radius: 4px;
+  border-radius: 8px;
   height: 160px;
   width: 280px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   object-fit: fill;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const CardContent = styled.div`
@@ -51,12 +57,34 @@ const CardContent = styled.div`
 const StyledExtraContent = styled.div<{ isExpanded: boolean }>`
   width: 100%;
   background-color: #ffffff;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 8px 8px;
   max-width: 900px;
   padding: ${(props) => (props.isExpanded ? "8px 16px" : "0 16px")};
   max-height: ${(props) => (props.isExpanded ? "500px" : "0")};
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
+`;
+
+const StyledButton = styled.button`
+  margin: 8px 0;
+  padding: 8px 16px;
+  border: 2px solid #007bff;
+  background-color: transparent;
+  border-radius: 9999px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 type ExperienceCardProps = {
@@ -97,9 +125,13 @@ const ExperienceCard = ({ img, title, text, link }: ExperienceCardProps) => {
           </ul>
         )}
         {link && (
-          <a href={link.link} target="_blank" rel="noreferrer">
-            {link.text}
-          </a>
+          <Row justifyContent="center" width="100%">
+            <StyledButton>
+              <a href={link.link} target="_blank" rel="noreferrer">
+                {link.text}
+              </a>
+            </StyledButton>
+          </Row>
         )}
       </StyledExtraContent>
     </Container>
