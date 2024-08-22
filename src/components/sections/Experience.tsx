@@ -50,13 +50,26 @@ const LinkedButtonsContainer = styled.div`
   align-items: center;
 `;
 
-const StyledLinkedButtons = styled.button`
-  background-color: #3d52a0;
-  color: white;
-  border: none;
-  border-radius: 5px;
+const StyledButton = styled.button`
+  margin: 8px 0;
   padding: 8px 16px;
+  border: 2px solid #007bff;
+  background-color: transparent;
+  border-radius: 9999px;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 `;
 
 const Experience = () => {
@@ -104,28 +117,32 @@ const Experience = () => {
             {currentExperience.date}
           </Typography>
         </Column>
+        {currentExperience.extraLinks && (
+          <LinkedButtonsContainer>
+            {currentExperience.extraLinks.map((link) => (
+              <StyledButton
+                key={link.name}
+                onClick={() => openInNewTab(link.link)}
+              >
+                <Row
+                  justifyContent="space-between"
+                  gap="16px"
+                  alignItems="center"
+                >
+                  <a href={link.link} target="_blank" rel="noreferrer">
+                    {link.name}
+                  </a>
+                  <LaunchIcon fontSize="small" />
+                </Row>
+              </StyledButton>
+            ))}
+          </LinkedButtonsContainer>
+        )}
         <Column width="100%" alignItems="center">
           {currentExperience.description.map((desc, idx) => (
             <ExperienceCard {...desc} />
           ))}
         </Column>
-        {currentExperience.extraLinks && (
-          <LinkedButtonsContainer>
-            {currentExperience.extraLinks.map((link) => (
-              <StyledLinkedButtons
-                key={link.name}
-                onClick={() => openInNewTab(link.link)}
-              >
-                <Row justifyContent="space-between" gap="16px">
-                  <Typography variant="body2" component="span">
-                    {link.name}
-                  </Typography>
-                  <LaunchIcon fontSize="small" />
-                </Row>
-              </StyledLinkedButtons>
-            ))}
-          </LinkedButtonsContainer>
-        )}
       </ExperienceContainer>
     </Column>
   );
