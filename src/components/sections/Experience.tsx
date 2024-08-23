@@ -8,6 +8,7 @@ import Row from "../common/Row";
 import LaunchIcon from "@mui/icons-material/Launch";
 import PillSelect from "../common/PillSelect";
 import ExperienceCard from "../common/ExperienceCard";
+import { StyledButton } from "../common/Button";
 
 const ExperienceContainer = styled.div<{ background?: string }>`
   display: flex;
@@ -48,28 +49,6 @@ const LinkedButtonsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-`;
-
-const StyledButton = styled.button`
-  margin: 8px 0;
-  padding: 8px 16px;
-  border: 2px solid #007bff;
-  background-color: transparent;
-  border-radius: 9999px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 14px;
-  transition: box-shadow 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
 `;
 
 const Experience = () => {
@@ -139,7 +118,7 @@ const Experience = () => {
           </LinkedButtonsContainer>
         )}
         <Column width="100%" alignItems="center">
-          {currentExperience.description.map((desc, idx) => (
+          {currentExperience.description.map((desc) => (
             <ExperienceCard {...desc} />
           ))}
         </Column>

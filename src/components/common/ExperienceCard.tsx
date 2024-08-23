@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { Typography } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Row from "./Row";
+import useScreenSizeStatus from "../../hooks/useScreenSizeStatus";
 
 const Container = styled.div`
   display: flex;
@@ -13,9 +14,9 @@ const Container = styled.div`
   margin: 16px 0;
 `;
 
-const StyledCardContainer = styled.div<{ isExpanded: boolean }>`
+const StyledCardContainer = styled.div<{ isExpanded: boolean, isMobile: boolean }>`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => props.isMobile ? "column" : "row"};
   align-items: center;
   width: 100%;
   height: 100%;
@@ -34,15 +35,36 @@ const StyledCardContainer = styled.div<{ isExpanded: boolean }>`
 
 const ImgContainer = styled.img`
   border-radius: 8px;
-  height: 160px;
-  width: 280px;
+  height: 162.5px;
+  width: 250px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  object-fit: fill;
+  object-fit: cover;
   transition: transform 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.1);
   }
+`;
+
+const Overlay = styled.div<{ isVisible: boolean }>`
+  display: ${(props) => (props.isVisible ? "flex" : "none")};
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const FullscreenImg = styled.img`
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 `;
 
 const CardContent = styled.div`
@@ -60,7 +82,7 @@ const StyledExtraContent = styled.div<{ isExpanded: boolean }>`
   border-radius: 0 0 8px 8px;
   max-width: 900px;
   padding: ${(props) => (props.isExpanded ? "8px 16px" : "0 16px")};
-  max-height: ${(props) => (props.isExpanded ? "500px" : "0")};
+  max-height: ${(props) => (props.isExpanded ? "unset" : "0")};
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
 `;
@@ -98,15 +120,28 @@ type ExperienceCardProps = {
 };
 
 const ExperienceCard = ({ img, title, text, link }: ExperienceCardProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isMobile } = useScreenSizeStatus();
+
+
+  const onImgClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsModalOpen(true);
+  }
 
   return (
     <Container>
       <StyledCardContainer
         onClick={() => setIsExpanded((p) => !p)}
         isExpanded={isExpanded}
+        isMobile={isMobile}
       >
-        <ImgContainer src={img} alt="project image" />
+        <ImgContainer
+          src={img}
+          alt="project image"
+          onClick={onImgClick}
+        />
         <CardContent>
           <Typography variant="h5">{title}</Typography>
           {isExpanded ? (
@@ -134,6 +169,10 @@ const ExperienceCard = ({ img, title, text, link }: ExperienceCardProps) => {
           </Row>
         )}
       </StyledExtraContent>
+
+      <Overlay isVisible={isModalOpen} onClick={() => setIsModalOpen(false)}>
+        <FullscreenImg src={img} alt="fullscreen project image" />
+      </Overlay>
     </Container>
   );
 };

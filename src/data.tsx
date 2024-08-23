@@ -12,7 +12,7 @@ Outside of school and work, I enjoy swimming as a part of the Waterloo varsity s
 export const getAboutLinks = () => [
   {
     name: "Resume",
-    link: process.env.PUBLIC_URL + "/christian-florea-resume.pdf",
+    link: process.env.PUBLIC_URL + "/documents/christian-florea-resume.pdf",
     logo: <ArticleIcon />,
   },
   {
@@ -69,7 +69,7 @@ export const getExperience = (): Experience[] => [
     company: "Verkada",
     date: "May 2024 – August 2024",
     icon: {
-      src: process.env.PUBLIC_URL + "/verkada-logo.webp",
+      src: process.env.PUBLIC_URL + "/logos/verkada-logo.webp",
       alt: "Verkada Logo",
       height: "50px",
       width: "66px",
@@ -77,7 +77,7 @@ export const getExperience = (): Experience[] => [
     },
     description: [
       {
-        img: process.env.PUBLIC_URL + "/dashboard-img.png",
+        img: process.env.PUBLIC_URL + "/thumbnails/intercom-dashboard-thumbnail.png",
         title: "Intercom Dashboard",
         text: [
           "Developed a new intercom dashboard page to display and sort more than 100k weekly call and video events.",
@@ -86,12 +86,12 @@ export const getExperience = (): Experience[] => [
           "Integrated Highcharts library for data presentation, creating scalable code for future dashboards features.",
         ],
         link: {
-          link: process.env.PUBLIC_URL + "/project-intercom-dashboard.pdf",
+          link: process.env.PUBLIC_URL + "/documents/project-intercom-dashboard.pdf",
           text: "Dashboard Deep Dive",
         },
       },
       {
-        img: process.env.PUBLIC_URL + "/ai-search-img.png",
+        img: process.env.PUBLIC_URL + "/thumbnails/ai-search-thumbnail.png",
         title: "AI Transcription Search",
         text: [
           "Developed new loading skeleton for the events page to account for unpredictable load times.",
@@ -99,12 +99,12 @@ export const getExperience = (): Experience[] => [
           "Built a virtualized table with smooth scrolling and dynamic row rendering, improving table load time by 200%.",
         ],
         link: {
-          link: process.env.PUBLIC_URL + "/project-intercom-ai-search.pdf",
+          link: process.env.PUBLIC_URL + "/documents/project-intercom-ai-search.pdf",
           text: "AI Search Deep Dive",
         },
       },
       {
-        img: process.env.PUBLIC_URL + "/verkada-dashboard.png",
+        img: process.env.PUBLIC_URL + "/thumbnails/concurrent-calls-thumbnail.png",
         title: "Concurrent Call Handling",
         text: [
           "Buildt on top of call modal to handle concurrent calls, allowing users to switch between calls and put calls on hold.",
@@ -130,7 +130,7 @@ export const getExperience = (): Experience[] => [
     company: "Relay Financial",
     date: "Sep – Dec 2023",
     icon: {
-      src: process.env.PUBLIC_URL + "/relay-logo.webp",
+      src: process.env.PUBLIC_URL + "/logos/relay-logo.webp",
       alt: "Relay Logo",
       height: "30.6px",
       width: "60px",
@@ -138,7 +138,7 @@ export const getExperience = (): Experience[] => [
     },
     description: [
       {
-        img: process.env.PUBLIC_URL + "/verkada-dashboard.png",
+        img: process.env.PUBLIC_URL + "/thumbnails/relay-rc-thumbnail.png",
         title: "Receipt Capture",
         text: [
           "Developed an event handler using AWS and Node to parse and upload data from 1000+ daily emailed receipts.",
@@ -153,7 +153,7 @@ export const getExperience = (): Experience[] => [
         },
       },
       {
-        img: process.env.PUBLIC_URL + "/verkada-dashboard.png",
+        img: process.env.PUBLIC_URL + "/thumbnails/relay-auto-match-thumbnail.png",
         title: "Forwared Email Receipt OCR Auto-matching",
         text: [
           "Created a message queue with SQS to process the emails, improving efficiency by 40% and enhancing reliability.",
@@ -175,7 +175,7 @@ export const getExperience = (): Experience[] => [
     company: "ATS Corporation",
     date: "Jan – Apr 2023",
     icon: {
-      src: process.env.PUBLIC_URL + "/ats-logo.webp",
+      src: process.env.PUBLIC_URL + "/logos/ats-logo.webp",
       alt: "ATS Logo",
       height: "15px",
       width: "80px",
@@ -183,7 +183,7 @@ export const getExperience = (): Experience[] => [
     },
     description: [
       {
-        img: process.env.PUBLIC_URL + "/verkada-dashboard.png",
+        img: process.env.PUBLIC_URL + "/thumbnails/ats-web-app.png",
         title: "Full Stack App developed from Scratch",
         text: [
           "Prototyped a full stack React/Node app from scratch, to replace a third-party app with concurrent user issues.",
@@ -191,7 +191,7 @@ export const getExperience = (): Experience[] => [
         ],
       },
       {
-        img: process.env.PUBLIC_URL + "/verkada-dashboard.png",
+        img: process.env.PUBLIC_URL + "/thumbnails/ats-websocket-thumbnail.png",
         title: "Websockets for Real-time Data",
         text: [
           "Employed WebSockets to display real-time data from the PLC, decreasing data latency time by 4x.",
@@ -212,7 +212,7 @@ export const getExperience = (): Experience[] => [
   //   company: "Molex",
   //   date: "Sep – Dec 2022",
   //   icon: {
-  //     src: process.env.PUBLIC_URL + "/molex-logo.png",
+  //     src: process.env.PUBLIC_URL + "/logos/molex-logo.png",
   //     alt: "Molex Logo",
   //     height: "60px",
   //     width: "60px",

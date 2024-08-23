@@ -4,7 +4,9 @@ import styled from "styled-components";
 import useScreenSizeStatus from "../../hooks/useScreenSizeStatus";
 import Column from "../common/Column";
 import { getAboutLinks, getAboutText } from "../../data";
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
+import { StyledFilledButton } from "../common/Button";
+import Row from "../common/Row";
 
 const AboutContainer = styled.div`
   margin: 48px auto;
@@ -62,12 +64,12 @@ const StyledButtons = styled.div`
   margin-top: 24px;
 `;
 
-const LinkButton = styled(Button)`
+const LinkButton = styled(StyledFilledButton)`
   width: 140px;
-  background-color: #2980b9;
 
-  & hover {
-    background-color: #3498db;
+  div {
+    padding: 4px;
+    jsutify-content: space-evenly;
   }
 `;
 
@@ -112,12 +114,14 @@ function About() {
         {aboutLinks.map((link) => (
           <LinkButton
             key={link.name}
-            variant="contained"
-            color="info"
-            startIcon={link.logo}
             onClick={() => openInNewTab(link.link)}
           >
-            {link.name}
+            <Row justifyContent="space-between" gap="16px" alignItems="center">
+              <a href={link.link} target="_blank" rel="noreferrer">
+                {link.name}
+              </a>
+              {link.logo}
+            </Row>
           </LinkButton>
         ))}
       </StyledButtons>
