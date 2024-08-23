@@ -107,7 +107,7 @@ export const getExperience = (): Experience[] => [
         img: process.env.PUBLIC_URL + "/thumbnails/concurrent-calls-thumbnail.png",
         title: "Concurrent Call Handling",
         text: [
-          "Buildt on top of call modal to handle concurrent calls, allowing users to switch between calls and put calls on hold.",
+          "Built on top of call modal to handle concurrent calls, allowing users to switch between calls and put calls on hold.",
           "Implemented a call queue to manage incoming calls, allowing users to answer or reject calls.",
           "Added visual queues to show the status of calls, such as ringing, on hold, or connected.",
         ],
