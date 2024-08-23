@@ -14,7 +14,7 @@ const StyledPillButton = styled.button<{
     props.selected ? props.color : "transparent"};
   border: none;
   color: white;
-  height: ${(props) => (props.mobile ? "60px" : "70px")};
+  height: ${(props) => (props.mobile ? "55px" : "70px")};
   width: ${(props) => (props.desktop ? "200px" : "100%")};
   text-align: center;
   text-decoration: none;
@@ -29,7 +29,7 @@ const StyledPillButton = styled.button<{
   }
 `;
 
-const StyledPillContainer = styled.div<{ desktop: boolean }>`
+const StyledPillContainer = styled.div<{ mobile: boolean; desktop: boolean }>`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -38,7 +38,7 @@ const StyledPillContainer = styled.div<{ desktop: boolean }>`
   padding: 2px;
   border-radius: 9999px;
   gap: ${(props) => (props.desktop ? "4px" : 0)};
-  width: ${(props) => (!props.desktop ? "100%" : "unset")};
+  width: ${(props) => (props.mobile ? "95%" : props.desktop ? "unset" : "70%")};
 `;
 
 type PillSelectProps = {
@@ -55,7 +55,7 @@ const PillSelect = ({ items, currentSelection }: PillSelectProps) => {
   const { isMobile, isDesktop } = useScreenSizeStatus();
 
   return (
-    <StyledPillContainer desktop={isDesktop}>
+    <StyledPillContainer desktop={isDesktop} mobile={isMobile}>
       {items.map((item, i) => (
         <StyledPillButton
           key={item.name}
