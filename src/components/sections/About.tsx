@@ -29,7 +29,7 @@ const AboutContainer = styled.div`
   h4 {
     font-family: "poppins", sans-serif;
     font-weight: 600;
-    color: #2980b9;
+    color: #2c3e50;
   }
 
   h2,
@@ -43,7 +43,7 @@ const AboutContainer = styled.div`
 `;
 
 const GradientText = styled(Typography)`
-  background: linear-gradient(90deg, #d35400, #e74c3c);
+  background: linear-gradient(319deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -66,6 +66,7 @@ const StyledButtons = styled.div`
 
 const LinkButton = styled(StyledFilledButton)`
   width: 140px;
+  background-color: #2c3e50;
 
   div {
     padding: 4px;
