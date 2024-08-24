@@ -248,3 +248,55 @@ export const getExperience = (): Experience[] => [
   //   ],
   // },
 ];
+
+type Project = {
+  name: string
+  description: string
+  skills: string[],
+  img: string
+  link?: string // no link -> in progress
+}
+
+export const getProjects = (): Project[] => [
+  {
+    name: 'Swim Meet Results Analizer',
+    description: 'A tool built in Python to scrape swim meet results and plot using MatPlotlib',
+    skills: ["Python", "MatPlotlib", "Web Scraping"],
+    img: process.env.PUBLIC_URL + "/projects/swim-meet.png",
+    link: "https://github.com/christianflorea/swim-meet-analysis"
+  },
+  {
+    name: 'Blockchain Storage Employee Management',
+    description: 'A blockchain storage app that uses Jackal Protocol to store and manage employee data. Won 1st place at the BC OlympiHacks 2023 hackathon',
+    skills: ["Javascript", "Jackal Protocol", "Blockchain"],
+    img: process.env.PUBLIC_URL + "/projects/jackal.png",
+    link: "https://github.com/christianflorea/OlympiHacks-BC"
+  },
+  {
+    name: "Personal Website",
+    description: "This Website",
+    skills: ["React", "TypeScript", "Styled Components", "Custom Hooks"],
+    img: process.env.PUBLIC_URL + "/projects/portfolio.png",
+    link: "https://github.com/christianflorea/portfolio"
+  },
+  {
+    name: 'C++ Terminal Video Game',
+    description: 'Video game created with BearLibTerminal with varying levels and power-ups',
+    skills: ["C++", "BearLibTerminal"],
+    img: process.env.PUBLIC_URL + "/projects/terminal-game.png",
+    link: "https://github.com/christianflorea/terminal-video-game"
+  },
+  {
+    name: 'Tennis Instructor Mock Website',
+    description: 'A mock website built for a tennis instructor to showcase their services and schedule',
+    skills: ["Javascript", "CSS"],
+    img: process.env.PUBLIC_URL + "/projects/tennis-web.png",
+    link: "https://github.com/christianflorea?tab=repositories&q=&type=public&language=&sort="
+  },
+  {
+    name: 'Round Robin OS Scheduler',
+    description: 'A round robin OS scheduler built in C that schedules threads on a STM32 board',
+    skills: ["C", "STM32", "Threading", "Operating Systems"],
+    img: process.env.PUBLIC_URL + "/projects/os-scheduler.png",
+  }
+  ]

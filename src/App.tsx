@@ -9,6 +9,7 @@ import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
 import ScrollIcon from "./components/common/ScrollIcon";
 import ExperienceDesktop from "./components/sections/ExperienceDesktop";
+import Footer from "./components/sections/Footer";
 
 const TopLineContainer = styled.div<{ isRow: boolean }>`
   display: flex;
@@ -37,6 +38,7 @@ function App() {
             <About />
             {isMobile ? <Experience /> : <ExperienceDesktop />}
             <Projects />
+            <Footer />
           </Fragment>
         )}
       </TopLineContainer>
