@@ -36,7 +36,7 @@ const StyledTitle = styled(Typography)`
     font-family: "poppins", sans-serif;
     font-size: 48px;
     font-weight: 600;
-    color: #3d52a0;
+    color: #2c3e50;
     margin-bottom: 16px;
   }
 `;

@@ -13,7 +13,7 @@ const ExperienceContainer = styled.div`
   & h3 {
     font-family: "poppins", sans-serif;
     font-weight: 600;
-    color: #3d52a0;
+    color: #2c3e50;
   }
 `;
 
