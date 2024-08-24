@@ -44,6 +44,7 @@ type Experience = {
   company: string;
   companyLink: string;
   date: string;
+  color: string;
   icon: {
     src: string;
     alt: string;
@@ -68,16 +69,21 @@ export const getExperience = (): Experience[] => [
     role: "Frontend Software Engineer Intern",
     company: "Verkada",
     date: "May 2024 – August 2024",
+    color:
+      "linear-gradient(90deg, hsla(203, 80%, 98%, 1) 0%, hsla(198, 76%, 90%, 1) 50%, hsla(203, 80%, 98%, 1) 100%)",
     icon: {
-      src: process.env.PUBLIC_URL + "/logos/verkada-logo.webp",
+      src: process.env.PUBLIC_URL + "/logos/verkada-full-logo.png",
       alt: "Verkada Logo",
       height: "50px",
-      width: "66px",
-      color: "#222222",
+      width: "85px",
+      color:
+        "linear-gradient(90deg, hsla(203, 80%, 98%, 1) 0%, hsla(198, 76%, 90%, 1) 50%, hsla(203, 80%, 98%, 1) 100%)",
     },
     description: [
       {
-        img: process.env.PUBLIC_URL + "/thumbnails/intercom-dashboard-thumbnail.png",
+        img:
+          process.env.PUBLIC_URL +
+          "/thumbnails/intercom-dashboard-thumbnail.png",
         title: "Intercom Dashboard",
         text: [
           "Developed a new intercom dashboard page to display and sort more than 100k weekly call and video events.",
@@ -86,7 +92,9 @@ export const getExperience = (): Experience[] => [
           "Integrated Highcharts library for data presentation, creating scalable code for future dashboards features.",
         ],
         link: {
-          link: process.env.PUBLIC_URL + "/documents/project-intercom-dashboard.pdf",
+          link:
+            process.env.PUBLIC_URL +
+            "/documents/project-intercom-dashboard.pdf",
           text: "Dashboard Deep Dive",
         },
       },
@@ -99,12 +107,15 @@ export const getExperience = (): Experience[] => [
           "Built a virtualized table with smooth scrolling and dynamic row rendering, improving table load time by 200%.",
         ],
         link: {
-          link: process.env.PUBLIC_URL + "/documents/project-intercom-ai-search.pdf",
+          link:
+            process.env.PUBLIC_URL +
+            "/documents/project-intercom-ai-search.pdf",
           text: "AI Search Deep Dive",
         },
       },
       {
-        img: process.env.PUBLIC_URL + "/thumbnails/concurrent-calls-thumbnail.png",
+        img:
+          process.env.PUBLIC_URL + "/thumbnails/concurrent-calls-thumbnail.png",
         title: "Concurrent Call Handling",
         text: [
           "Built on top of call modal to handle concurrent calls, allowing users to switch between calls and put calls on hold.",
@@ -128,13 +139,16 @@ export const getExperience = (): Experience[] => [
   {
     role: "Software Engineer Intern",
     company: "Relay Financial",
-    date: "Sep – Dec 2023",
+    date: "September – December 2023",
+    color:
+      "linear-gradient(90deg, hsla(71, 68%, 95%, 1) 0%, hsla(68, 65%, 80%, 1) 50%, hsla(71, 68%, 95%, 1) 100%)",
     icon: {
       src: process.env.PUBLIC_URL + "/logos/relay-logo.webp",
       alt: "Relay Logo",
       height: "30.6px",
       width: "60px",
-      color: "#D7E288",
+      color:
+        "linear-gradient(90deg, hsla(71, 68%, 95%, 1) 0%, hsla(68, 65%, 80%, 1) 50%, hsla(71, 68%, 95%, 1) 100%)",
     },
     description: [
       {
@@ -153,7 +167,8 @@ export const getExperience = (): Experience[] => [
         },
       },
       {
-        img: process.env.PUBLIC_URL + "/thumbnails/relay-auto-match-thumbnail.png",
+        img:
+          process.env.PUBLIC_URL + "/thumbnails/relay-auto-match-thumbnail.png",
         title: "Forwared Email Receipt OCR Auto-matching",
         text: [
           "Created a message queue with SQS to process the emails, improving efficiency by 40% and enhancing reliability.",
@@ -173,13 +188,15 @@ export const getExperience = (): Experience[] => [
   {
     role: "Software Engineer Intern",
     company: "ATS Corporation",
-    date: "Jan – Apr 2023",
+    date: "January – April 2023",
+    color:
+      "linear-gradient(90deg, hsla(222, 92%, 95%, 1) 0%, hsla(220, 92%, 85%, 1) 50%, hsla(222, 92%, 95%, 1) 100%)",
     icon: {
       src: process.env.PUBLIC_URL + "/logos/ats-logo.webp",
       alt: "ATS Logo",
-      height: "15px",
-      width: "80px",
-      color: "#ffffff",
+      height: "20px",
+      width: "100px",
+      color: "linear-gradient(90deg, hsla(222, 92%, 95%, 1) 0%, hsla(220, 92%, 85%, 1) 50%, hsla(222, 92%, 95%, 1) 100%)",
     },
     description: [
       {

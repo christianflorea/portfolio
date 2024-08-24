@@ -8,6 +8,7 @@ import { styled } from "styled-components";
 import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
 import ScrollIcon from "./components/common/ScrollIcon";
+import ExperienceDesktop from "./components/sections/ExperienceDesktop";
 
 const TopLineContainer = styled.div<{ isRow: boolean }>`
   display: flex;
@@ -18,10 +19,8 @@ const TopLineContainer = styled.div<{ isRow: boolean }>`
 `;
 
 function App() {
-  const { isDesktop } = useScreenSizeStatus();
+  const { isMobile, isDesktop } = useScreenSizeStatus();
   const [isContentVisible, setIsContentVisible] = useState(false);
-
-
 
   const onAnimationDone = useCallback(() => {
     setIsContentVisible(true);
@@ -30,15 +29,13 @@ function App() {
   return (
     <div className="App">
       <TopLineContainer isRow={isDesktop}>
-        <Terminal
-          onAnimationDone={onAnimationDone}
-        />
+        <Terminal onAnimationDone={onAnimationDone} />
 
         {isContentVisible && (
           <Fragment>
             <ScrollIcon />
             <About />
-            <Experience />
+            {isMobile ? <Experience /> : <ExperienceDesktop />}
             <Projects />
           </Fragment>
         )}

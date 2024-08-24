@@ -33,7 +33,7 @@ const StyledTerminal = styled.div<{ width?: string }>`
   height: 600px;
   max-height: 80vh;
   border-radius: 10px;
-  background-color: rgb(33, 33, 33);
+  background-color: #212121;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.6);
 `;
 

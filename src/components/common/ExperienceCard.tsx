@@ -23,7 +23,7 @@ const StyledCardContainer = styled.div<{ isExpanded: boolean, isMobile: boolean 
   max-width: 900px;
   padding: 16px;
   border-radius: ${(props) => (props.isExpanded ? "8px 8px 0 0" : "8px")};
-  background-color: #d4d8d8;
+  background-color: #d4d9da;
   cursor: pointer;
   transition: background-color 0.3s ease, border-radius 0.3s ease;
   gap: 16px;

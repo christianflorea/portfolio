@@ -10,7 +10,7 @@ const StyledPillButton = styled.button<{
   desktop: boolean;
 }>`
   flex: 1;
-  background-color: ${(props) =>
+  background: ${(props) =>
     props.selected ? props.color : "transparent"};
   border: none;
   color: white;
@@ -34,7 +34,7 @@ const StyledPillContainer = styled.div<{ mobile: boolean; desktop: boolean }>`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #bec2c2;
+  background-color: #d4d9da;
   padding: 2px;
   border-radius: 9999px;
   gap: ${(props) => (props.desktop ? "4px" : 0)};

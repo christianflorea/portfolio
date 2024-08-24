@@ -16,7 +16,7 @@ const AboutContainer = styled.div`
   padding: 48px 0;
   text-align: center;
   width: 100%;
-  background-color: #d3bfba;
+  background-color: #d4d9da;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
   div {
