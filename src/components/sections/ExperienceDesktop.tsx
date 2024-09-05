@@ -51,20 +51,21 @@ const ExperienceBanner = styled.div<{ background: string }>`
   background: ${(props) => props.background};
   padding: 24px;
   gap: 16px;
+  text-align: center;
 `;
 
 const Logo = styled.img`
   width: 150px;
 `;
 
-const Experience = styled.div<{ isResponsive: boolean }>`
+const Experience = styled.div<{ isResponsive: boolean, isMobile: boolean }>`
   display: flex;
-  flex-direction: ${(props) => (props.isResponsive ? "column" : "row")};
+  flex-direction: ${(props) => (props.isResponsive || props.isMobile ? "column" : "row")};
   gap: ${(props) => (props.isResponsive ? "24px" : null)};
   align-items: center;
   gap: 12px;
   width: 100%;
-  padding: 16px 48px;
+  padding: 32px ${props => props.isMobile ? 12 : 48}px;
 `;
 
 const StyledImg = styled.img`
@@ -73,12 +74,12 @@ const StyledImg = styled.img`
   transition: transform 0.3s ease-in-out;
 
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.01);
   }
 `;
 
 const LinkButton = styled(StyledButton)`
-  margin-top: 16px;
+  margin-top: 8px;
 `;
 
 const Clickable = styled.div`
@@ -87,9 +88,9 @@ const Clickable = styled.div`
 
 const ExperienceDesktop = () => {
   const experience = getExperience();
-  const { isResponsive } = useScreenSizeStatus();
+  const { isResponsive, isMobile, isDesktop } = useScreenSizeStatus();
   const [ref, width] = useDivWidth();
-  const imgWidth = width ? width / 2 - 46 : 400;
+  const imgWidth = width ? !isDesktop ? '80%' : width / 2 - 46 : 400;
 
   const openInNewTab = (link: string) => {
     window.open(link, "_blank", "noreferrer");
@@ -112,21 +113,28 @@ const ExperienceDesktop = () => {
               </Column>
             </ExperienceBanner>
             {exp.description.map((desc, i) => (
-              <Experience ref={ref} isResponsive={isResponsive}>
-                {i % 2 === 0 && !isResponsive && (
+              <Experience ref={ref} isResponsive={isResponsive} isMobile={isMobile}>
+                {i % 2 === 0 && isDesktop && (
                   <StyledImg src={desc.img} alt={desc.title} width={imgWidth} />
                 )}
                 <Column alignItems="center" justifyContent="center">
                   <Typography variant="h4" textAlign="center" gutterBottom>
                     {desc.title}
                   </Typography>
-                  {isResponsive && (
+                  {!isDesktop && (
                     <StyledImg
                       src={desc.img}
                       alt={desc.title}
                       width={imgWidth}
                     />
                   )}
+                  <Typography
+                    variant="body1"
+                    textAlign="center"
+                    margin="16px"
+                  >
+                    {desc.text}
+                  </Typography>
                   {desc.link && (
                     <Row justifyContent="center" width="100%">
                       <LinkButton>
@@ -140,13 +148,8 @@ const ExperienceDesktop = () => {
                       </LinkButton>
                     </Row>
                   )}
-                  <ul>
-                    {desc.text.map((text) => (
-                      <li>{text}</li>
-                    ))}
-                  </ul>
                 </Column>
-                {i % 2 === 1 && !isResponsive && (
+                {i % 2 === 1 && isDesktop && (
                   <StyledImg src={desc.img} alt={desc.title} width={imgWidth} />
                 )}
               </Experience>

@@ -14,9 +14,12 @@ const Container = styled.div`
   margin: 16px 0;
 `;
 
-const StyledCardContainer = styled.div<{ isExpanded: boolean, isMobile: boolean }>`
+const StyledCardContainer = styled.div<{
+  isExpanded: boolean;
+  isMobile: boolean;
+}>`
   display: flex;
-  flex-direction: ${props => props.isMobile ? "column" : "row"};
+  flex-direction: ${(props) => (props.isMobile ? "column" : "row")};
   align-items: center;
   width: 100%;
   height: 100%;
@@ -112,7 +115,7 @@ const StyledButton = styled.button`
 type ExperienceCardProps = {
   img: string;
   title: string;
-  text?: string[];
+  text?: string;
   link?: {
     link: string;
     text: string;
@@ -124,11 +127,10 @@ const ExperienceCard = ({ img, title, text, link }: ExperienceCardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { isMobile } = useScreenSizeStatus();
 
-
   const onImgClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsModalOpen(true);
-  }
+  };
 
   return (
     <Container>
@@ -137,11 +139,7 @@ const ExperienceCard = ({ img, title, text, link }: ExperienceCardProps) => {
         isExpanded={isExpanded}
         isMobile={isMobile}
       >
-        <ImgContainer
-          src={img}
-          alt="project image"
-          onClick={onImgClick}
-        />
+        <ImgContainer src={img} alt="project image" onClick={onImgClick} />
         <CardContent>
           <Typography variant="h5">{title}</Typography>
           {isExpanded ? (
@@ -153,11 +151,9 @@ const ExperienceCard = ({ img, title, text, link }: ExperienceCardProps) => {
       </StyledCardContainer>
       <StyledExtraContent isExpanded={isExpanded}>
         {text && (
-          <ul>
-            {text.map((desc, idx) => (
-              <li key={idx}>{desc}</li>
-            ))}
-          </ul>
+          <Typography variant="body1" textAlign="center">
+            {text}
+          </Typography>
         )}
         {link && (
           <Row justifyContent="center" width="100%">

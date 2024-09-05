@@ -55,7 +55,7 @@ type Experience = {
   description: {
     img: string;
     title: string;
-    text: string[];
+    text: string;
     link?: {
       link: string;
       text: string;
@@ -85,27 +85,16 @@ export const getExperience = (): Experience[] => [
           process.env.PUBLIC_URL +
           "/thumbnails/intercom-dashboard-thumbnail.png",
         title: "Intercom Dashboard",
-        text: [
-          "Developed a new intercom dashboard page to display and sort more than 100k weekly call and video events.",
-          "Created new React components that utilize Redux for fetching and storing data; tested using RTL and Cypress.",
-          "Developed custom hooks to process user, phone, and local SIP receiver IDs and return localized text.",
-          "Integrated Highcharts library for data presentation, creating scalable code for future dashboards features.",
-        ],
+        text: "At Verkada, I worked on developing a new intercom dashboard page to display and sort more than 100k weekly call and video events. The dashboard was built using tools such as React, Redux, React Query, localized text, and Highcharts. This new tool will not only help organizations ensure that intercoms are answered in a timely manner, but also provide more information on when intercoms are in heavy use to make better staffing decisions.",
         link: {
-          link:
-            process.env.PUBLIC_URL +
-            "/documents/project-intercom-dashboard.pdf",
-          text: "Dashboard Deep Dive",
+          link: "https://www.verkada.com/blog/enhancing-enterprise-scalability-with-new-intercom-software-features/",
+          text: "Read More",
         },
       },
       {
         img: process.env.PUBLIC_URL + "/thumbnails/ai-search-thumbnail.png",
         title: "AI Transcription Search",
-        text: [
-          "Developed new loading skeleton for the events page to account for unpredictable load times.",
-          "Utilized React Query to fetch and cache data, reducing the number of API calls by 50%.",
-          "Built a virtualized table with smooth scrolling and dynamic row rendering, improving table load time by 200%.",
-        ],
+        text: "I also worked on a new AI Transcript search feature to allow users to more easily search for their interocm events. I developed new loading skeletons for unpredictable load times and utilized React Query to fetch and cache data, reducing the number of API calls by 50%. Each event is accompanied by a synopsis which summarizes the transcript and explains why the result is relevant.",
         link: {
           link:
             process.env.PUBLIC_URL +
@@ -117,11 +106,7 @@ export const getExperience = (): Experience[] => [
         img:
           process.env.PUBLIC_URL + "/thumbnails/concurrent-calls-thumbnail.png",
         title: "Concurrent Call Handling",
-        text: [
-          "Built on top of call modal to handle concurrent calls, allowing users to switch between calls and put calls on hold.",
-          "Implemented a call queue to manage incoming calls, allowing users to answer or reject calls.",
-          "Added visual queues to show the status of calls, such as ringing, on hold, or connected.",
-        ],
+        text: "Finally, I built a new call modal to handle concurrent calls, allowing users to switch between calls and put others on hold. This was done by implementing a call queue to manage incoming calls, allowing users to answer or reject calls. I also added new animations to show the status of calls, such as ringing, on hold, or connected.",
       },
     ],
     companyLink: "https://www.verkada.com",
@@ -154,27 +139,17 @@ export const getExperience = (): Experience[] => [
       {
         img: process.env.PUBLIC_URL + "/thumbnails/relay-rc-thumbnail.png",
         title: "Receipt Capture",
-        text: [
-          "Developed an event handler using AWS and Node to parse and upload data from 1000+ daily emailed receipts.",
-          "Built an receipt upload drawer with drag-and-drop functionality and file type/size validation.",
-          "Created a message queue with SQS to process the emails, improving efficiency by 40% and enhancing reliability.",
-          "Used Lambda to handle compute-intensive tasks such as OCR, and SES for return emails when errors occurred.",
-          "Implemented Veryfi’s API to improve OCR, resulting in receipt to transaction matching accuracy of 98%.",
-        ],
+        text: "I developed an automated system using AWS and Node that manages over 1,000 daily emailed receipts. This new feature incuded a drag-and-drop interface for easy upload and file validation, and was integrated with a centralized platform for expense tracking.",
         link: {
           link: "https://relayfi.com/receipt-management",
-          text: "Receipt Capture Released",
+          text: "Read More",
         },
       },
       {
         img:
           process.env.PUBLIC_URL + "/thumbnails/relay-auto-match-thumbnail.png",
         title: "Forwared Email Receipt OCR Auto-matching",
-        text: [
-          "Created a message queue with SQS to process the emails, improving efficiency by 40% and enhancing reliability.",
-          "Used Lambda to handle compute-intensive tasks such as OCR, and SES for return emails when errors occurred.",
-          "Implemented Veryfi’s API to improve OCR, resulting in receipt to transaction matching accuracy of 98%.",
-        ],
+        text: "To enhance accuracy, I implemented Veryfi's API for OCR, achieving 98% accuracy in automatically matching receipts to transactions, significantly improving data reliability and reducing manual entry.",
       },
     ],
     companyLink: "https://www.relayfi.com",
@@ -196,24 +171,19 @@ export const getExperience = (): Experience[] => [
       alt: "ATS Logo",
       height: "20px",
       width: "100px",
-      color: "linear-gradient(90deg, hsla(222, 92%, 95%, 1) 0%, hsla(220, 92%, 85%, 1) 50%, hsla(222, 92%, 95%, 1) 100%)",
+      color:
+        "linear-gradient(90deg, hsla(222, 92%, 95%, 1) 0%, hsla(220, 92%, 85%, 1) 50%, hsla(222, 92%, 95%, 1) 100%)",
     },
     description: [
       {
         img: process.env.PUBLIC_URL + "/thumbnails/ats-web-app.png",
         title: "Full Stack App developed from Scratch",
-        text: [
-          "Prototyped a full stack React/Node app from scratch, to replace a third-party app with concurrent user issues.",
-          "Developed a microservice with 15+ endpoints to fetch and aggregate PLC data via OPCUA, testing with Postman.",
-        ],
+        text: "I prototyped a full stack React/Node app from scratch to replace a third-party app that had issues with concurrent users. The app includes a microservice with over 15 endpoints to fetch and aggregate PLC data via OPCUA, thoroughly tested using Postman.",
       },
       {
         img: process.env.PUBLIC_URL + "/thumbnails/ats-websocket-thumbnail.png",
         title: "Websockets for Real-time Data",
-        text: [
-          "Employed WebSockets to display real-time data from the PLC, decreasing data latency time by 4x.",
-          "Built a custom WebSocket server with Node.js to allow the client to subscribe to real-time data updates.",
-        ],
+        text: "To enable real-time data display from the PLC, I employed WebSockets, reducing data latency by 4x. I built a custom WebSocket server in Node.js, allowing clients to subscribe to real-time data updates seamlessly.",
       },
     ],
     companyLink: "https://www.atsautomation.com",
@@ -250,53 +220,58 @@ export const getExperience = (): Experience[] => [
 ];
 
 type Project = {
-  name: string
-  description: string
-  skills: string[],
-  img: string
-  link?: string // no link -> in progress
-}
+  name: string;
+  description: string;
+  skills: string[];
+  img: string;
+  link?: string; // no link -> in progress
+};
 
 export const getProjects = (): Project[] => [
   {
-    name: 'Swim Meet Results Analizer',
-    description: 'A tool built in Python to scrape swim meet results and plot using MatPlotlib',
+    name: "Swim Meet Results Analizer",
+    description:
+      "A tool built in Python to scrape swim meet results and plot using MatPlotlib",
     skills: ["Python", "MatPlotlib", "Web Scraping"],
     img: process.env.PUBLIC_URL + "/projects/swim-meet.png",
-    link: "https://github.com/christianflorea/swim-meet-analysis"
+    link: "https://github.com/christianflorea/swim-meet-analysis",
   },
   {
-    name: 'Blockchain Storage Employee Management',
-    description: 'A blockchain storage app that uses Jackal Protocol to store and manage employee data. Won 1st place at the BC OlympiHacks 2023 hackathon',
+    name: "Blockchain Storage Employee Management",
+    description:
+      "A blockchain storage app that uses Jackal Protocol to store and manage employee data. Won 1st place at the BC OlympiHacks 2023 hackathon",
     skills: ["Javascript", "Jackal Protocol", "Blockchain"],
     img: process.env.PUBLIC_URL + "/projects/jackal.png",
-    link: "https://github.com/christianflorea/OlympiHacks-BC"
+    link: "https://github.com/christianflorea/OlympiHacks-BC",
   },
   {
     name: "Personal Website",
     description: "This Website",
     skills: ["React", "TypeScript", "Styled Components", "Custom Hooks"],
     img: process.env.PUBLIC_URL + "/projects/portfolio.png",
-    link: "https://github.com/christianflorea/portfolio"
+    link: "https://github.com/christianflorea/portfolio",
   },
   {
-    name: 'C++ Terminal Video Game',
-    description: 'Video game created with BearLibTerminal with varying levels and power-ups',
+    name: "C++ Terminal Video Game",
+    description:
+      "Video game created with BearLibTerminal with varying levels and power-ups",
     skills: ["C++", "BearLibTerminal"],
     img: process.env.PUBLIC_URL + "/projects/terminal-game.png",
-    link: "https://github.com/christianflorea/terminal-video-game"
+    link: "https://github.com/christianflorea/terminal-video-game",
   },
   {
-    name: 'Tennis Instructor Mock Website',
-    description: 'A mock website built for a tennis instructor to showcase their services and schedule',
+    name: "Tennis Instructor Mock Website",
+    description:
+      "A mock website built for a tennis instructor to showcase their services and schedule",
     skills: ["Javascript", "CSS"],
     img: process.env.PUBLIC_URL + "/projects/tennis-web.png",
-    link: "https://github.com/christianflorea?tab=repositories&q=&type=public&language=&sort="
+    link: "https://github.com/christianflorea/tennis-instructor-website",
   },
   {
-    name: 'Round Robin OS Scheduler',
-    description: 'A round robin OS scheduler built in C that schedules threads on a STM32 board',
+    name: "Round Robin OS Scheduler",
+    description:
+      "A round robin OS scheduler built in C that schedules threads on a STM32 board",
     skills: ["C", "STM32", "Threading", "Operating Systems"],
     img: process.env.PUBLIC_URL + "/projects/os-scheduler.png",
-  }
-  ]
+  },
+];

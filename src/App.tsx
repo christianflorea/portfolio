@@ -5,7 +5,6 @@ import Terminal from "./components/common/Terminal";
 import About from "./components/sections/About";
 import useScreenSizeStatus from "./hooks/useScreenSizeStatus";
 import { styled } from "styled-components";
-import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
 import ScrollIcon from "./components/common/ScrollIcon";
 import ExperienceDesktop from "./components/sections/ExperienceDesktop";
@@ -36,7 +35,7 @@ function App() {
           <Fragment>
             <ScrollIcon />
             <About />
-            {isMobile ? <Experience /> : <ExperienceDesktop />}
+            <ExperienceDesktop />
             <Projects />
             <Footer />
           </Fragment>

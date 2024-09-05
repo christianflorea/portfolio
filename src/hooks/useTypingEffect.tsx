@@ -10,7 +10,7 @@ interface UseTypingEffectProps {
 }
 
 const useTypingEffect = ({
-  initialDelay = 1000,
+  initialDelay = 300,
   finishDelay = 2000,
   typingSpeed = 400,
   fullCommand,
