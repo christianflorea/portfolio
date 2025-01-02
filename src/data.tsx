@@ -229,6 +229,14 @@ type Project = {
 
 export const getProjects = (): Project[] => [
   {
+    name: "Camera Vision Ball Balancing Platform",
+    description:
+      "Camera vision analysis tracks a ball on a platform and integrates with a PID controller to adjust the platform’s tilt for ball balancing.",
+    skills: ["OpenCV", "Python", "PID Control", "I2C Communcation"],
+    img: process.env.PUBLIC_URL + "/projects/mte380.png",
+    link: "https://github.com/christianflorea/stewart-platform-cv",
+  },
+  {
     name: "Swim Meet Results Analizer",
     description:
       "A tool built in Python to scrape swim meet results and plot using MatPlotlib",
@@ -258,6 +266,14 @@ export const getProjects = (): Project[] => [
     skills: ["C++", "BearLibTerminal"],
     img: process.env.PUBLIC_URL + "/projects/terminal-game.png",
     link: "https://github.com/christianflorea/terminal-video-game",
+  },
+  {
+    name: "Fluid Dynamics Pipe Drainage Simulation",
+    description:
+      "Modeling water draining through pipes using a differential equation solver in Python.",
+    skills: ["Numerical Methods", "Python", "Math", "Simulation"],
+    img: process.env.PUBLIC_URL + "/projects/tank-drain.png",
+    link: "https://github.com/christianflorea/fluid-dynamics-tank-drainage-model",
   },
   {
     name: "Tennis Instructor Mock Website",
