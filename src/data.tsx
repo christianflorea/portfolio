@@ -12,7 +12,7 @@ Outside of school and work, I enjoy swimming as a part of the Waterloo varsity s
 export const getAboutLinks = () => [
   {
     name: "Resume",
-    link: process.env.PUBLIC_URL + "/documents/christian-florea-resume.pdf",
+    link: process.env.PUBLIC_URL + "/documents/resume.pdf",
     logo: <ArticleIcon />,
   },
   {
