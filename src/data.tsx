@@ -66,7 +66,7 @@ type Experience = {
 
 export const getExperience = (): Experience[] => [
   {
-    role: "Frontend Software Engineer Intern",
+    role: "Software Engineer Intern",
     company: "Verkada",
     date: "May 2024 – August 2024",
     color:
