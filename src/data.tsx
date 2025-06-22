@@ -43,6 +43,7 @@ type Experience = {
   role: string;
   company: string;
   companyLink: string;
+  location: string;
   date: string;
   color: string;
   icon: {
@@ -66,9 +67,33 @@ type Experience = {
 
 export const getExperience = (): Experience[] => [
   {
+    role: "Incoming Software Engineer Intern",
+    company: "Uber",
+    location: "San Fransisco, CA",
+    date: "Fall 2025",
+    color:
+      "linear-gradient(90deg, rgb(164, 164, 164) 0%, rgb(196, 196, 196) 50%, rgb(163, 162, 162) 100%)",
+    icon: {
+      src: process.env.PUBLIC_URL + "/logos/uber-logo.png",
+      alt: "Uber Logo",
+      height: "300px",
+      width: "828px",
+      color: "#000",
+    },
+    description: [],
+    companyLink: "https://www.uber.com/",
+    extraLinks: [
+      {
+        name: "Uber Website",
+        link: "https://www.uber.com/",
+      },
+    ],
+  },
+  {
     role: "Software Engineer Intern",
     company: "Verkada",
-    date: "May 2024 – August 2024",
+    location: "San Mateo, CA",
+    date: "Summer 2025",
     color:
       "linear-gradient(90deg, hsla(203, 80%, 98%, 1) 0%, hsla(198, 76%, 90%, 1) 50%, hsla(203, 80%, 98%, 1) 100%)",
     icon: {
@@ -76,8 +101,75 @@ export const getExperience = (): Experience[] => [
       alt: "Verkada Logo",
       height: "50px",
       width: "85px",
-      color:
-        "linear-gradient(90deg, hsla(203, 80%, 98%, 1) 0%, hsla(198, 76%, 90%, 1) 50%, hsla(203, 80%, 98%, 1) 100%)",
+      color: "#000",
+    },
+    description: [
+      {
+        img: process.env.PUBLIC_URL + "/thumbnails/verkada-async-events.png",
+        title: "Sync to Async Export Pipeline",
+        text: "Designed and implemented a robust asynchronous export pipeline: on user request, the service validates input, enqueues an export job to Kafka, and records in-progress status in Redis. A Kubernetes consumer reads the job, queries Postgres for event data, generates the CSV, uploads it to S3, and triggers an SES email with the download link—decoupling heavy workloads from the user-facing service, boosting reliability, and minimizing response latency.",
+      },
+      {
+        img: process.env.PUBLIC_URL + "/thumbnails/elasticsearch-thumbnail.png",
+        title: "Elasticsearch Migration",
+        text: "Led migration of event search functionality to Elasticsearch, improving query performance and reliability for high-volume door event data.",
+      },
+    ],
+    companyLink: "https://www.verkada.com",
+    extraLinks: [
+      {
+        name: "Verkada Website",
+        link: "https://www.verkada.com",
+      },
+    ],
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Magi Inc",
+    location: "New York, NY",
+    date: "Winter 2025",
+    color:
+      "linear-gradient(90deg, rgb(70, 70, 70) 0%, rgb(74, 30, 111) 50%, rgb(64, 67, 68) 100%)",
+    icon: {
+      src: process.env.PUBLIC_URL + "/logos/magi-logo.webp",
+      alt: "Magi Logo",
+      height: "60px",
+      width: "250px",
+      color: "#fff",
+    },
+    description: [
+      {
+        img: process.env.PUBLIC_URL + "/thumbnails/magi-rag-engine.png",
+        title: "Vector-based Recommendation Engine",
+        text: "Built a recommendation engine from scratch to deliver personalized fashion suggestions, leveraging vector embeddings for 700k+ images.",
+      },
+      {
+        img: process.env.PUBLIC_URL + "/thumbnails/magi-rag-algorithm.png",
+        title: "RAG-based Re-ranking Algorithm",
+        text: "Executed a RAG-based post-ranking step that boosted outbound click-through rates by 68% through improved result relevance.",
+      },
+      {
+        img: process.env.PUBLIC_URL + "/thumbnails/magi-ingestion.png",
+        title: "Image Ingestion Queue",
+        text: "Designed and implemented a scalable processing queue for image description, embedding, and storage, handling high-throughput pipelines.",
+      },
+    ],
+    companyLink: "https://magi.inc/",
+    extraLinks: [],
+  },
+  {
+    role: "Software Engineer Intern",
+    company: "Verkada",
+    location: "San Mateo, CA",
+    date: "Summer 2024",
+    color:
+      "linear-gradient(90deg, hsla(203, 80%, 98%, 1) 0%, hsla(198, 76%, 90%, 1) 50%, hsla(203, 80%, 98%, 1) 100%)",
+    icon: {
+      src: process.env.PUBLIC_URL + "/logos/verkada-full-logo.png",
+      alt: "Verkada Logo",
+      height: "50px",
+      width: "85px",
+      color: "#000",
     },
     description: [
       {
@@ -124,7 +216,8 @@ export const getExperience = (): Experience[] => [
   {
     role: "Software Engineer Intern",
     company: "Relay Financial",
-    date: "September – December 2023",
+    location: "Toronto, ON",
+    date: "Fall 2023",
     color:
       "linear-gradient(90deg, hsla(71, 68%, 95%, 1) 0%, hsla(68, 65%, 80%, 1) 50%, hsla(71, 68%, 95%, 1) 100%)",
     icon: {
@@ -132,8 +225,7 @@ export const getExperience = (): Experience[] => [
       alt: "Relay Logo",
       height: "30.6px",
       width: "60px",
-      color:
-        "linear-gradient(90deg, hsla(71, 68%, 95%, 1) 0%, hsla(68, 65%, 80%, 1) 50%, hsla(71, 68%, 95%, 1) 100%)",
+      color: "#000",
     },
     description: [
       {
@@ -160,40 +252,40 @@ export const getExperience = (): Experience[] => [
       },
     ],
   },
-  {
-    role: "Software Engineer Intern",
-    company: "ATS Corporation",
-    date: "January – April 2023",
-    color:
-      "linear-gradient(90deg, hsla(222, 92%, 95%, 1) 0%, hsla(220, 92%, 85%, 1) 50%, hsla(222, 92%, 95%, 1) 100%)",
-    icon: {
-      src: process.env.PUBLIC_URL + "/logos/ats-logo.webp",
-      alt: "ATS Logo",
-      height: "20px",
-      width: "100px",
-      color:
-        "linear-gradient(90deg, hsla(222, 92%, 95%, 1) 0%, hsla(220, 92%, 85%, 1) 50%, hsla(222, 92%, 95%, 1) 100%)",
-    },
-    description: [
-      {
-        img: process.env.PUBLIC_URL + "/thumbnails/ats-web-app.png",
-        title: "Full Stack App developed from Scratch",
-        text: "I prototyped a full stack React/Node app from scratch to replace a third-party app that had issues with concurrent users. The app includes a microservice with over 15 endpoints to fetch and aggregate PLC data via OPCUA, thoroughly tested using Postman.",
-      },
-      {
-        img: process.env.PUBLIC_URL + "/thumbnails/ats-websocket-thumbnail.png",
-        title: "Websockets for Real-time Data",
-        text: "To enable real-time data display from the PLC, I employed WebSockets, reducing data latency by 4x. I built a custom WebSocket server in Node.js, allowing clients to subscribe to real-time data updates seamlessly.",
-      },
-    ],
-    companyLink: "https://www.atsautomation.com",
-    extraLinks: [
-      {
-        name: "ATS Website",
-        link: "https://www.atsautomation.com",
-      },
-    ],
-  },
+  // {
+  //   role: "Software Engineer Intern",
+  //   company: "ATS Corporation",
+  //   date: "January – April 2023",
+  //   color:
+  //     "linear-gradient(90deg, hsla(222, 92%, 95%, 1) 0%, hsla(220, 92%, 85%, 1) 50%, hsla(222, 92%, 95%, 1) 100%)",
+  //   icon: {
+  //     src: process.env.PUBLIC_URL + "/logos/ats-logo.webp",
+  //     alt: "ATS Logo",
+  //     height: "20px",
+  //     width: "100px",
+  //     color:
+  //       "linear-gradient(90deg, hsla(222, 92%, 95%, 1) 0%, hsla(220, 92%, 85%, 1) 50%, hsla(222, 92%, 95%, 1) 100%)",
+  //   },
+  //   description: [
+  //     {
+  //       img: process.env.PUBLIC_URL + "/thumbnails/ats-web-app.png",
+  //       title: "Full Stack App developed from Scratch",
+  //       text: "I prototyped a full stack React/Node app from scratch to replace a third-party app that had issues with concurrent users. The app includes a microservice with over 15 endpoints to fetch and aggregate PLC data via OPCUA, thoroughly tested using Postman.",
+  //     },
+  //     {
+  //       img: process.env.PUBLIC_URL + "/thumbnails/ats-websocket-thumbnail.png",
+  //       title: "Websockets for Real-time Data",
+  //       text: "To enable real-time data display from the PLC, I employed WebSockets, reducing data latency by 4x. I built a custom WebSocket server in Node.js, allowing clients to subscribe to real-time data updates seamlessly.",
+  //     },
+  //   ],
+  //   companyLink: "https://www.atsautomation.com",
+  //   extraLinks: [
+  //     {
+  //       name: "ATS Website",
+  //       link: "https://www.atsautomation.com",
+  //     },
+  //   ],
+  // },
   // {
   //   role: "Infrastructue Engineer Intern",
   //   company: "Molex",

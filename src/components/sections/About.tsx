@@ -76,7 +76,6 @@ const LinkButton = styled(StyledFilledButton)`
 
 function About() {
   const { isMobile } = useScreenSizeStatus();
-  const aboutText = getAboutText();
   const aboutLinks = getAboutLinks();
 
   const titleVariant = isMobile ? "h3" : "h1";
@@ -108,8 +107,6 @@ function About() {
             A Software Engineer.
           </Typography>
         </Column>
-
-        <StyledText variant="body1">{aboutText}</StyledText>
       </Column>
       <StyledButtons>
         {aboutLinks.map((link) => (
