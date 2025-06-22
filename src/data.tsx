@@ -110,7 +110,7 @@ export const getExperience = (): Experience[] => [
         text: "Designed and implemented a robust asynchronous export pipeline: on user request, the service validates input, enqueues an export job to Kafka, and records in-progress status in Redis. A Kubernetes consumer reads the job, queries Postgres for event data, generates the CSV, uploads it to S3, and triggers an SES email with the download link—decoupling heavy workloads from the user-facing service, boosting reliability, and minimizing response latency.",
       },
       {
-        img: process.env.PUBLIC_URL + "/thumbnails/elasticsearch-thumbnail.png",
+        img: process.env.PUBLIC_URL + "/thumbnails/verkada-elasticsearch.jpg",
         title: "Elasticsearch Migration",
         text: "Led migration of event search functionality to Elasticsearch, improving query performance and reliability for high-volume door event data.",
       },
