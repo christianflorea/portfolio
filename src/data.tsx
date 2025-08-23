@@ -33,8 +33,8 @@ export const getAboutLinks = () => [
 ];
 
 export const getSections = () => [
-  "About Me",
-  "Contact",
+  // "About Me",
+  // "Contact",
   "Experience",
   "Projects",
 ];

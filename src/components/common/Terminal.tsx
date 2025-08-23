@@ -44,7 +44,7 @@ const MacButton = styled.div`
 `;
 
 type TerminalProps = {
-  onAnimationDone: () => void;
+  onAnimationDone?: () => void;
 };
 
 function Terminal({ onAnimationDone }: TerminalProps) {
@@ -56,7 +56,7 @@ function Terminal({ onAnimationDone }: TerminalProps) {
 
   const { command, showNextCommand } = useTypingEffect({
     fullCommand: "ls ",
-    onAnimationDone: onAnimationDone,
+    onAnimationDone: onAnimationDone || (() => {}),
   });
 
   return (
