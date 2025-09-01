@@ -8,6 +8,9 @@ import { styled } from "styled-components";
 import Modal from "./components/common/Modal";
 import Projects from "./components/sections/Projects";
 import ExperienceDesktop from "./components/sections/ExperienceDesktop";
+import useLoadBackgroundImage from "./hooks/useLoadBackgroundImage";
+
+const BG_URL = `${process.env.PUBLIC_URL}/os-wallpaper.jpg`;
 
 const TopLineContainer = styled.div<{ isRow: boolean }>`
   display: flex;
@@ -19,20 +22,44 @@ const TopLineContainer = styled.div<{ isRow: boolean }>`
   overflow: hidden;
 `;
 
-const AppContainer = styled.div`
+const AppContainer = styled.div<{ $bgLoaded: boolean }>`
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background-image: url(${process.env.PUBLIC_URL + "/os-wallpaper.jpg"});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  position: relative;
+  background: ${({ $bgLoaded }) =>
+    $bgLoaded ? `url(${BG_URL}) center / cover no-repeat` : "#0b0b0b"};
+`;
+
+const LoaderOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+`;
+
+const Spinner = styled.div`
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(255, 255, 255, 0.9);
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 function App() {
   const { isMobile, isDesktop } = useScreenSizeStatus();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState<React.ReactNode>(null);
+  const bgLoaded = useLoadBackgroundImage(BG_URL);
 
   const onModalClick = useCallback((content: React.ReactNode) => {
     setIsModalOpen(true);
@@ -65,13 +92,26 @@ function App() {
     },
     {
       icon: process.env.PUBLIC_URL + "/logos/github-logo.png",
-      onClick: () =>
-        openInNewTab("https://github.com/christianflorea"),
+      onClick: () => openInNewTab("https://github.com/christianflorea"),
     },
   ];
 
+  if (!bgLoaded) {
+    return (
+      <AppContainer $bgLoaded={false}>
+        <LoaderOverlay
+          role="status"
+          aria-live="polite"
+          aria-label="Loading background"
+        >
+          <Spinner />
+        </LoaderOverlay>
+      </AppContainer>
+    );
+  }
+
   return (
-    <AppContainer>
+    <AppContainer $bgLoaded={true}>
       <TopLineContainer isRow={!isDesktop}>
         <Terminal onAnimationDone={() => null} />
         <Dock
