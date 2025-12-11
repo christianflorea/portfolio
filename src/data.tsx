@@ -1,43 +1,8 @@
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import EmailIcon from "@mui/icons-material/Email";
-import ArticleIcon from "@mui/icons-material/Article";
-
 export const getAboutText = () => `
 I am a student currently studying Engineering at the University of Waterloo and passionate about exploring the world of tech and engineering. I am approaching 2 years of professional experience through internships working in industries such as fintech and physical security.
 
 Outside of school and work, I enjoy swimming as a part of the Waterloo varsity swim team as well as watching F1 and hockey.
 `;
-
-export const getAboutLinks = () => [
-  {
-    name: "Resume",
-    link: process.env.PUBLIC_URL + "/documents/resume.pdf",
-    logo: <ArticleIcon />,
-  },
-  {
-    name: "LinkedIn",
-    link: "https://www.linkedin.com/in/christianflorea/",
-    logo: <LinkedInIcon />,
-  },
-  {
-    name: "GitHub",
-    link: "https://github.com/christianflorea",
-    logo: <GitHubIcon />,
-  },
-  {
-    name: "Email",
-    link: "mailto:cflorea@uwaterloo.ca",
-    logo: <EmailIcon />,
-  },
-];
-
-export const getSections = () => [
-  // "About Me",
-  // "Contact",
-  "Experience",
-  "Projects",
-];
 
 type Experience = {
   role: string;
@@ -67,12 +32,11 @@ type Experience = {
 
 export const getExperience = (): Experience[] => [
   {
-    role: "Incoming Software Engineer Intern",
+    role: "Software Engineer Intern",
     company: "Uber",
     location: "San Fransisco, CA",
     date: "Fall 2025",
-    color:
-      "linear-gradient(90deg, rgb(164, 164, 164) 0%, rgb(196, 196, 196) 50%, rgb(163, 162, 162) 100%)",
+    color: "rgb(201, 200, 200)",
     icon: {
       src: process.env.PUBLIC_URL + "/logos/uber-logo.png",
       alt: "Uber Logo",
@@ -94,8 +58,7 @@ export const getExperience = (): Experience[] => [
     company: "Verkada",
     location: "San Mateo, CA",
     date: "Summer 2025",
-    color:
-      "linear-gradient(90deg, hsla(203, 80%, 98%, 1) 0%, hsla(198, 76%, 90%, 1) 50%, hsla(203, 80%, 98%, 1) 100%)",
+    color: "hsl(198, 68%, 90%)",
     icon: {
       src: process.env.PUBLIC_URL + "/logos/verkada-full-logo.png",
       alt: "Verkada Logo",
@@ -128,8 +91,7 @@ export const getExperience = (): Experience[] => [
     company: "Magi Inc",
     location: "New York, NY",
     date: "Winter 2025",
-    color:
-      "linear-gradient(90deg, rgb(70, 70, 70) 0%, rgb(74, 30, 111) 50%, rgb(64, 67, 68) 100%)",
+    color: "rgba(216, 189, 239, 1)",
     icon: {
       src: process.env.PUBLIC_URL + "/logos/magi-logo.webp",
       alt: "Magi Logo",
@@ -162,8 +124,7 @@ export const getExperience = (): Experience[] => [
     company: "Verkada",
     location: "San Mateo, CA",
     date: "Summer 2024",
-    color:
-      "linear-gradient(90deg, hsla(203, 80%, 98%, 1) 0%, hsla(198, 76%, 90%, 1) 50%, hsla(203, 80%, 98%, 1) 100%)",
+    color: "hsl(198, 68%, 90%)",
     icon: {
       src: process.env.PUBLIC_URL + "/logos/verkada-full-logo.png",
       alt: "Verkada Logo",
@@ -218,8 +179,7 @@ export const getExperience = (): Experience[] => [
     company: "Relay Financial",
     location: "Toronto, ON",
     date: "Fall 2023",
-    color:
-      "linear-gradient(90deg, hsla(71, 68%, 95%, 1) 0%, hsla(68, 65%, 80%, 1) 50%, hsla(71, 68%, 95%, 1) 100%)",
+    color: "hsl(70, 51%, 86%)",
     icon: {
       src: process.env.PUBLIC_URL + "/logos/relay-logo.webp",
       alt: "Relay Logo",

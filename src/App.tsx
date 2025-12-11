@@ -1,133 +1,22 @@
-import React, { useCallback, useState } from "react";
-import "./App.css";
-
-import Terminal from "./components/common/Terminal";
-import Dock from "./components/common/Dock";
-import useScreenSizeStatus from "./hooks/useScreenSizeStatus";
-import { styled } from "styled-components";
-import Modal from "./components/common/Modal";
-import Projects from "./components/sections/Projects";
-import ExperienceDesktop from "./components/sections/ExperienceDesktop";
-import useLoadBackgroundImage from "./hooks/useLoadBackgroundImage";
-
-const BG_URL = `${process.env.PUBLIC_URL}/os-wallpaper.jpg`;
-
-const TopLineContainer = styled.div<{ isRow: boolean }>`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: space-between;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-`;
-
-const AppContainer = styled.div<{ $bgLoaded: boolean }>`
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  position: relative;
-  background: ${({ $bgLoaded }) =>
-    $bgLoaded ? `url(${BG_URL}) center / cover no-repeat` : "#0b0b0b"};
-`;
-
-const LoaderOverlay = styled.div`
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-`;
-
-const Spinner = styled.div`
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 4px solid rgba(255, 255, 255, 0.25);
-  border-top-color: rgba(255, 255, 255, 0.9);
-  animation: spin 1s linear infinite;
-
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-`;
+import { HashRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "./pages/Layout";
+import { Home } from "./pages/Home";
+import { About } from "./pages/About";
+import { Experience } from "./pages/Experience";
+import { Projects } from "./pages/Projects";
 
 function App() {
-  const { isMobile, isDesktop } = useScreenSizeStatus();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState<React.ReactNode>(null);
-  const bgLoaded = useLoadBackgroundImage(BG_URL);
-
-  const onModalClick = useCallback((content: React.ReactNode) => {
-    setIsModalOpen(true);
-    setModalContent(content);
-  }, []);
-
-  const openInNewTab = (link: string) => {
-    window.open(link, "_blank", "noreferrer");
-  };
-
-  const dockItems = [
-    {
-      text: "Experience",
-      onClick: () => onModalClick(<ExperienceDesktop />),
-    },
-    {
-      text: "Projects",
-      onClick: () => onModalClick(<Projects />),
-      alt: "Molex",
-    },
-    {
-      icon: process.env.PUBLIC_URL + "/logos/resume-logo.png",
-      onClick: () =>
-        openInNewTab(process.env.PUBLIC_URL + "/documents/resume.pdf"),
-    },
-    {
-      icon: process.env.PUBLIC_URL + "/logos/linkedin-logo.png",
-      onClick: () =>
-        openInNewTab("https://www.linkedin.com/in/christianflorea/"),
-    },
-    {
-      icon: process.env.PUBLIC_URL + "/logos/github-logo.png",
-      onClick: () => openInNewTab("https://github.com/christianflorea"),
-    },
-  ];
-
-  if (!bgLoaded) {
-    return (
-      <AppContainer $bgLoaded={false}>
-        <LoaderOverlay
-          role="status"
-          aria-live="polite"
-          aria-label="Loading background"
-        >
-          <Spinner />
-        </LoaderOverlay>
-      </AppContainer>
-    );
-  }
-
   return (
-    <AppContainer $bgLoaded={true}>
-      <TopLineContainer isRow={!isDesktop}>
-        <Terminal onAnimationDone={() => null} />
-        <Dock
-          items={dockItems}
-          size={isDesktop ? 80 : isMobile ? 50 : 60}
-          dividerIndex={1}
-          scaleIntensity={1}
-          disableScaling={!isDesktop}
-        />
-      </TopLineContainer>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        content={modalContent}
-      />
-    </AppContainer>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="experience" element={<Experience />} />
+          <Route path="projects" element={<Projects />} />
+        </Route>
+      </Routes>
+    </HashRouter>
   );
 }
 
